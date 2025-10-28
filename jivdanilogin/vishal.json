@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "name": "vishal yadav singh",
+      "age": "22",
+      "email": "vishal@test.com",
+      "mobno": "9665564555",
+      "id": "450e"
+    },
+    {
+      "name": "shashank kuamr chaudhari",
+      "age": "32",
+      "email": "fnjenfi@test.com",
+      "mobno": "96654895",
+      "id": "aa39"
+    },
+    {
+      "name": "asif khane",
+      "degree": "b.tech",
+      "age": "22",
+      "email": "vishal@test.com",
+      "mobno": "9665564555",
+      "id": "bbed"
+    },
+    {
+      "name": "shail",
+      "degree": "b.tech",
+      "age": "28",
+      "email": "shail@test.com",
+      "mobno": "9665564555",
+      "id": "7e0e"
+    },
+    {
+      "id": "a37e",
+      "name": "ALOK",
+      "age": "22",
+      "email": "ALOK@TETS.COM",
+      "mobno": "7307628166"
+    }
+  ]
+}

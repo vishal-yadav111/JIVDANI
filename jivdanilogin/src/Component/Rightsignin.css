@@ -1,0 +1,157 @@
+
+.login-signup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+
+
+/* Card/container */
+.login-box {
+  background: #ffffff;
+  padding-top: 35px;        /* change left/right padding to control how close inputs appear to card edge */
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 6px;
+
+  max-width: 460px;         /* increase to make form wider; lower it to make it narrower */
+  width: 100%;
+  text-align: left;       
+
+}
+
+
+
+
+
+/* Header (logo + title)  */
+.login-header {
+  text-align: center;
+  margin-bottom: 8px;
+  display: flex;
+}
+.login-logo {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+.hospital-title {
+  display: inline-block;
+font-weight: 548;
+
+  color: red;
+  margin: 0;
+  vertical-align: middle;
+}
+.jivdani {
+  color: rgb(156, 58, 248);       /* First word color */
+}
+.hospital{
+  color: red;
+}
+
+/* Titles */
+.signin-title {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 6px;
+ 
+}
+.muted {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #666;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 5px;
+
+}
+.text{
+  font-size: smaller;
+ margin: 0;
+}
+.my-input::placeholder{
+font-size: 12px;
+
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* Make inputs stretch full width of the card */
+.input-full,
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remember / Forgot row */
+.forgot-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+/* Button full width */
+.signbutton {
+    color: white;
+  width: 100%;
+  border-radius: 6px;
+  background-color: rgb(156, 58, 248);
+}
+.signbutton:hover {
+  background-color: rgb(118, 22, 208);
+  color: white;
+}
+
+
+/* Optional: smaller link style */
+.forgot-link {
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+/* Make forgot password link look like text */
+.link-button {
+  background: none;
+  border: none;
+  color: rgb(154,47,254);
+  
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+
+}
+
+.link-button:hover {
+  color: rgb(96, 0, 185);
+}
+
+.back-to-login {
+  margin-top: 15px;
+}
