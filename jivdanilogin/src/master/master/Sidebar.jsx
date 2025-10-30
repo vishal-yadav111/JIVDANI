@@ -71,13 +71,13 @@ const menuItems = [
         id: "Medicine Analyst",
         title: "Medicine Analyst",
         icon: faFileText,
-        path: "/dashboard/createToken",
+        path: "/",
       },
       {
         id: "Dosage",
         title: "Dosage",
         icon: faCalendarDays,
-        path: "/dashboard/tokenbooking",
+        path: "/",
       },
       {
         id: "Units",
@@ -120,7 +120,7 @@ const menuItems = [
         id: "Allergies",
         title: "Allergies",
         icon: faFileText,
-        path: "/dashboard/createToken",
+        path: "/",
       },
 
       {
@@ -145,13 +145,13 @@ const menuItems = [
   },
 
   {
-    id: "ipdManagement",
+    id: "Complaints",
     icon: faHospital,
-    title: "IPD Management",
+    title: "Complaints",
     subItems: [
       {
-        id: "bedStatus",
-        title: "Bed Status",
+        id: "Complaints",
+        title: "Complaints",
         icon: faBed,
         path: "/dashboard/bed-status",
       },
@@ -224,20 +224,20 @@ const menuItems = [
     ],
   },
   {
-    id: "opdManagement",
+    id: "Diagnosis",
     icon: faUserNurse,
-    title: "OPD Management",
+    title: "Diagnosis",
     subItems: [
       {
-        id: "OPDBill",
-        title: "OPD Bill",
+        id: "Diagnosis",
+        title: "Diagnosis",
         icon: faDollarSign,
         path: "/dashboard/OPD-Billing",
       },
 
       {
-        id: "opt_token",
-        title: "OPD Tokens",
+        id: "Duration",
+        title: "Duration",
         icon: faClock,
         path: "/dashboard/tokenPage",
       },
@@ -258,13 +258,13 @@ const menuItems = [
     ],
   },
   {
-    id: "laboratory",
+    id: "Lab Test and Imaging",
     icon: faFlask,
-    title: "Laboratory",
+    title: "Lab Test and Imaging",
     subItems: [
       {
-        id: "Lab-ServiceHead",
-        title: "Lab Category",
+        id: "Lab Test and Imaging",
+        title: "Lab Test and Imaging",
         icon: faMicroscope,
         // path: "/dashboard/lab-tests",
         path: "/dashboard/Lab-ServiceHead",

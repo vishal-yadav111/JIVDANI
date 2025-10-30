@@ -48,10 +48,10 @@ function App() {
           {/* <Route  path='/add' element={<Adddata />}/>
 <Route path ='/edit/:id' element={<Changestodone />}/> */}
           {/* <Route path='/' element={<Profilecard />} /> */}
-          <Route path='/Login' element={<Login />} />
+          {/* <Route path='/Login' element={<Login />} />
 
           <Route path="/Otp" element={<Otp />} />
-          <Route path="/table" element={<Tablerendder />} />
+          <Route path="/table" element={<Tablerendder />} /> */}
           <Route path="/" element={<MedicinePage />} />
 
 
