@@ -86,13 +86,11 @@ import CVSTable from "./masterComponents/CvsTable";
 import { AddEditAll } from "../masterApi/AddEditAll";
 import MasterSideBar from "./MasterSideBar";
 import AddforAll from "../../modal/AddforAll";
-
-
+import SideBar from "./SidebarHomePage";
+import SidebarHomePage from "./SidebarHomePage";
 
 const MedicinePage = () => {
   const [medicines, setMedicines] = useState([]);
-
-
   const [search, setSearch] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
@@ -365,26 +363,15 @@ const MedicinePage = () => {
   });
 };
 
-
-
   // const saveEdit = async () => {
   //   const response = await AddEditMedicine({ data: editMedicine });
   const saveEdit = async () => {
-   
- 
     const response = await AddEditAll({ categoryId:catId, name:editMedicine.name, id:editingId });
     console.log("medicines are 111 ",editMedicine.name)
-    
-
-
-    
-    
-
     if (response) {
       setMedicines(
         medicines.map((med) =>
           med.id === editingId ? { ...med, ...editMedicine } : med,
-        
         )
       );
       setShowToast(true);
@@ -545,7 +532,7 @@ console.log("edit medicines are 789",editMedicine)
         className=" "
         style={{ flexDirection: "row", display: "flex", width: "100%" }}
       >
-        <div
+        {/* <div
           className="col d-flex flex-column align-items-center py-3 me-3  px-2 bg-white mb-1"
           style={{
             borderTopRightRadius: "8px",
@@ -557,16 +544,19 @@ console.log("edit medicines are 789",editMedicine)
             width: "10%",
             minWidth:"18%"
           }}
-        >
-          <MasterSideBar handleSideBar={handleSideBar} />
-        </div>
+        > */}
+          {/* <MasterSideBar handleSideBar={handleSideBar} /> */}
+        {/* </div> */}
+
+        <SidebarHomePage  handleSideBar={handleSideBar} />
         <div
           className="pe-2"
           style={{
             justifyContent: "space-between",
             display: "flex",
             flexDirection: "column",
-            width: "90%",
+            width: "100%",
+            marginLeft : "60px",
           }}
         >
           <div className="" style={{ flexGrow: 1 }}>
@@ -637,7 +627,7 @@ console.log("edit medicines are 789",editMedicine)
 
             {/* Table body */}
             <table
-              className="table table-fixed table-borderless "
+              className="table table-fixed table-borderless"
               style={{ borderRadius: 8 }}
             >
               <tbody
