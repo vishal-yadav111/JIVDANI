@@ -55,8 +55,8 @@ const LabTestImagingTable = ({
         {editingId === medicine.id ? (
           <input
             type="text"
-            name="diagnosis"
-            value={editMedicine.diagnosis || medicine.name}
+            name="name"
+            value={editMedicine.name|| medicine.name}
             onChange={handleEditChange}
             className="form-control"
             style={{ width: "100%", margin: 0, height: 32 }}

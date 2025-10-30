@@ -85,6 +85,7 @@ import RSTable from "./masterComponents/RsTable";
 import CVSTable from "./masterComponents/CvsTable";
 import { AddEditAll } from "../masterApi/AddEditAll";
 import MasterSideBar from "./MasterSideBar";
+import AddforAll from "../../modal/AddforAll";
 
 
 
@@ -101,7 +102,7 @@ const MedicinePage = () => {
   const [colorStatus, setColorStatus] = useState(3);
   const [toastMsg, setToastMsg] = useState("");
 
-  const [catId, setCatId] = useState(Categories.MEDICINE.catID ||Categories.DIAGNOSIS.catID);
+  const [catId, setCatId] = useState(Categories.MEDICINE.catID );
 
   const [editMedicine, setEditMedicine] = useState({
     id: "",
@@ -172,6 +173,16 @@ const MedicinePage = () => {
         active: true,
       },
       active: true,
+    });
+  };
+
+
+   const resetTheValueforAll = () => {
+    setEditingId(null);
+    setEditMedicine({
+      id: "",
+      name: "",
+      
     });
   };
 
@@ -299,6 +310,19 @@ const MedicinePage = () => {
       notes: med?.notes,
     });
   };
+
+
+    const handleEditforAll = (id, med) => {
+    console.log("handle edit function call",id);
+    setEditingId(id);
+
+      setEditMedicineforAll({
+      id: med?.id,
+      name: med?.name,
+  
+    });
+  };
+
 
  
 
@@ -509,7 +533,11 @@ console.log("edit medicines are 789",editMedicine)
             Export
           </button>
           {/* <button className="btn btn-primary">Create New +</button> */}
-          {<Medication customeKey={true} />}
+          
+          
+          <Medication customeKey={true} />
+       
+          
         </div>
       </div>
 
@@ -999,7 +1027,7 @@ console.log("edit medicines are 789",editMedicine)
                       />
                     ) : catId == Categories.COMPLAINTS.catID ? (
                       <ComplaintsTable
-                        complaint={medicine}
+                        medicine={medicine}
                         index={index}
                         indexOfFirstMedicine={0}
                         editingId={editingId}

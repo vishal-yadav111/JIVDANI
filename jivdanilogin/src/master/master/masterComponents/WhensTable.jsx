@@ -55,8 +55,8 @@ const WhensTable = ({
         {editingId === medicine.id ? (
           <input
             type="text"
-            name="diagnosis"
-            value={editMedicine.diagnosis || medicine.name}
+            name="name"
+            value={editMedicine.name || medicine.name}
             onChange={handleEditChange}
             className="form-control"
             style={{ width: "100%", margin: 0, height: 32 }}
@@ -66,7 +66,7 @@ const WhensTable = ({
         )}
       </td>
 
-      <td
+      {/* <td
         className="text-start"
         style={{
           width: "110px",
@@ -106,7 +106,7 @@ const WhensTable = ({
         ) : (
           medicine.date
         )}
-      </td>
+      </td> */}
 
       <td
         className="text-end" // Align icons to the right

@@ -1,32 +1,25 @@
-// import React, { useState } from "react";
-
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Color } from "../../../visitConstant/Color";
 import { faFloppyDisk, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const ComplaintsTable = ({
-  complaint,
+const CVSTable = ({
+  medicine,
   index,
-  indexOfFirstComplaint = 0,
+  indexOfFirstMedicine,
   editingId,
-  editComplaint,
-  setEditComplaint,
+  editMedicine,
+  handleEditChange,
   saveEdit,
   handleEdit,
   handleDelete,
 }) => {
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
-    setEditComplaint((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+ // console.log("medicine", medicine);
 
   return (
     <tr
       className="mt-2"
-      key={complaint.id}
+      key={medicine.id}
       style={{
         display: "table",
         width: "100%",
@@ -36,7 +29,7 @@ const ComplaintsTable = ({
         borderRadius: 8,
         fontSize: 14,
         backgroundColor:
-          editingId === complaint.id ? Color.focusColor : "transparent",
+          editingId === medicine.id ? Color.focusColor : "transparent",
         transition: "background-color 0.3s ease",
       }}
     >
@@ -46,90 +39,128 @@ const ComplaintsTable = ({
           width: "60px",
           borderTopLeftRadius: "8px",
           borderBottomLeftRadius: "8px",
-          backgroundColor: editingId === complaint.id ? "transparent" : "",
+          backgroundColor: editingId === medicine.id ? "transparent" : "",
         }}
       >
-        {indexOfFirstComplaint + index + 1} {/* Fix for serial number */}
+        {indexOfFirstMedicine + index + 1}
       </td>
 
       <td
         className="text-start"
         style={{
           width: "300px",
-          backgroundColor: editingId === complaint.id ? "transparent" : "",
+          backgroundColor: editingId === medicine.id ? "transparent" : "",
         }}
       >
-        {editingId === complaint.id ? (
+        {editingId === medicine.id ? (
           <input
             type="text"
-            name="complaint"
-            value={editComplaint?.complaint || complaint.name}
+            name="name"
+            value={editMedicine.name || medicine.name}
             onChange={handleEditChange}
             className="form-control"
             style={{ width: "100%", margin: 0, height: 32 }}
           />
         ) : (
-          complaint.name
+          medicine.name
+        )}
+      </td>
+{/* 
+      <td
+        className="text-start"
+        style={{
+          width: "110px",
+          backgroundColor: editingId === medicine.id ? "transparent" : "",
+        }}
+      >
+        {editingId === medicine.id ? (
+          <input
+            type="text"
+            name="duration"
+            value={editMedicine.duration || medicine.duration}
+            onChange={handleEditChange}
+            className="form-control"
+            style={{ width: "100%", margin: 0, height: 32 }}
+          />
+        ) : (
+          medicine.duration
         )}
       </td>
 
       <td
-        className="text-end"
+        className="text-start"
+        style={{
+          width: "100px",
+          backgroundColor: editingId === medicine.id ? "transparent" : "",
+        }}
+      >
+        {editingId === medicine.id ? (
+          <input
+            type="text"
+            name="date"
+            value={editMedicine.date || medicine.date}
+            onChange={handleEditChange}
+            className="form-control"
+            style={{ width: "100%", margin: 0, height: 32 }}
+          />
+        ) : (
+          medicine.date
+        )}
+      </td> */}
+
+      <td
+        className="text-end" // Align icons to the right
         style={{
           width: "90px",
           borderTopRightRadius: "8px",
           borderBottomRightRadius: "8px",
-          backgroundColor: editingId === complaint.id ? "transparent" : "",
+          backgroundColor: editingId === medicine.id ? "transparent" : "",
         }}
       >
-        {editingId === complaint.id ? (
+        {editingId === medicine.id ? (
           <>
             <FontAwesomeIcon
               // icon="fa-solid fa-floppy-disk"
               icon={faFloppyDisk}
-             
               className="text-primary"
               style={{
                 cursor: "pointer",
-                marginLeft: "15px",
+                marginLeft: "15px", // Set larger margin-left to push the save icon to the right
               }}
               onClick={saveEdit}
             />
             <FontAwesomeIcon
               // icon="fa-solid fa-trash"
               icon={faTrash}
-              
               style={{
                 color: "gray",
                 cursor: "pointer",
-                marginLeft: "15px",
+                marginLeft: "15px", // Set larger margin-left to push delete icon to the right
               }}
-              onClick={() => handleDelete(complaint.id)}
+              onClick={() => handleDelete(medicine.id)}
             />
           </>
         ) : (
           <>
             <FontAwesomeIcon
               // icon="fa-solid fa-pencil"
-          icon={faPencil}
-
+              icon={faPencil}
               style={{
                 cursor: "pointer",
-                marginLeft: "15px",
+                marginLeft: "15px", // Set larger margin-left to push edit icon to the right
                 color: "gray",
               }}
-              onClick={() => handleEdit(complaint.id, complaint)}
+              onClick={() => handleEdit(medicine.id, medicine)}
             />
             <FontAwesomeIcon
               // icon="fa-solid fa-trash"
               icon={faTrash}
-
               style={{
                 color: "gray",
                 cursor: "pointer",
                 marginLeft: "15px",
               }}
-              onClick={() => handleDelete(complaint.id)}
+              onClick={() => handleDelete(medicine.id)}
             />
           </>
         )}
@@ -138,4 +169,4 @@ const ComplaintsTable = ({
   );
 };
 
-export default ComplaintsTable;
+export default CVSTable;

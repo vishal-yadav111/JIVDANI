@@ -77,7 +77,7 @@ const DiagnosisTable = ({
           <input
             type="text"
             name="duration"
-            value={editMedicine.duration || medicine.duration}
+            value={editMedicine.name || medicine.name}
             onChange={handleEditChange}
             className="form-control"
             style={{ width: "100%", margin: 0, height: 32 }}
