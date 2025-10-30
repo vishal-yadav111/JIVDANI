@@ -535,7 +535,12 @@ console.log("edit medicines are 789",editMedicine)
           {/* <button className="btn btn-primary">Create New +</button> */}
           
           
-          <Medication customeKey={true} />
+          {catId === Categories.MEDICINE.catID ? (
+  <Medication customeKey={true} />
+) : (
+  <AddforAll customeKey={true} />
+)}
+
        
           
         </div>
@@ -559,6 +564,7 @@ console.log("edit medicines are 789",editMedicine)
           }}
         >
           <MasterSideBar handleSideBar={handleSideBar} />
+          {/* <Sidebar handleSideBar={handleSideBar} /> */}
         </div>
         <div
           className="pe-2"

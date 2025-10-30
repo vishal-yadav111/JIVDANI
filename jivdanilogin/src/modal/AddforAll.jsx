@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { AddEditMedicine } from "../master/masterApi/AddEditMedicine";
 import ToastFist from "../Toast/ToastFist";
 import { ERROR_MSG ,DATA_SAVED} from "../master/Constant";
+import { AddEditAll } from "../master/masterApi/AddEditAll";
 
 const AddforAll = ({ customeKey }) => {
 
@@ -38,7 +39,7 @@ const AddforAll = ({ customeKey }) => {
   const handleSubmit = async () => {
     setLoading(true);
 
-    const response = await AddEditMedicine({ data: inputValue });
+    const response = await AddEditAll({  name:inputValue.name  });;
     // console.log(response, 'dd')
     if (response) {
 
@@ -48,32 +49,11 @@ const AddforAll = ({ customeKey }) => {
       setColorStatus(1);
 
       setInputValue({
+        id:"",
         name: "",
-        contents: "",
-        type: "",
-        notes: "",
-        duration: "",
-        unit: {
-          id: "",
-          name: "",
-          active: true
-        },
-        dosage: {
-          id: "",
-          name: "",
-          active: true
-        },
-        whens: {
-          id: "",
-          name: "",
-          active: true
-        },
-        frequency: {
-          id: "",
-          name: "",
-          active: true
-        },
-        active: true
+      
+     
+        
       });
 
     } else {
@@ -113,7 +93,7 @@ const AddforAll = ({ customeKey }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="medicineLabellLabel">
-                Add Medications
+                Add 
               </h5>
               <button
                 type="button"
@@ -138,135 +118,10 @@ const AddforAll = ({ customeKey }) => {
                       onChange={handleInputChange}
                     />
                   </div>
-                  <div className="">
-                    <label htmlFor="contents" className="col-form-label">
-                      Type:
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="type"
-                      name="type"
-                      value={inputValue.type}
-                      onChange={handleInputChange}
-                    />
-                  </div>
+                 
                 </div>
-                <div class="">
-                  <div class="row row-cols-3">
-                    <div class="col">
-                      {" "}
-                      <div className="">
-                        <label htmlFor="contents" className="col-form-label">
-                          Contents:
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="contents"
-                          name="contents"
-                          value={inputValue.contents}
-                          onChange={handleInputChange}
-                        />
-                      </div>
+                
 
-                    </div>
-                    <div class="col">
-                      <div className="">
-                        <label htmlFor="dosage" className="col-form-label">
-                          Dosage:
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="dosage"
-                          name="dosage"
-                          value={inputValue.dosage?.name}
-                          onChange={(e) => handleInputChange(e, "dosage")}
-                        />
-                      </div>
-                    </div>
-                    <div class="col">
-                      {" "}
-                      <div className="">
-                        <label htmlFor="unit" className="col-form-label">
-                          Unit:
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="unit"
-                          name="unit"
-                          value={inputValue.unit?.name}
-                          onChange={(e) => handleInputChange(e, "unit")}
-                        />
-                      </div>
-                    </div>
-                    <div class="col">
-                      {" "}
-                      <div className="">
-                        <label htmlFor="whens" className="col-form-label">
-                          When to Take:
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="whens"
-                          name="whens"
-                          value={inputValue.whens?.name}
-                          onChange={(e) => handleInputChange(e, "whens")}
-                        />
-                      </div>
-                    </div>
-                    <div class="col">
-                      {" "}
-                      <div className="">
-                        <label htmlFor="frequency" className="col-form-label">
-                          Frequency:
-                        </label>
-
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="whens"
-                          name="frequency"
-                          value={inputValue.frequency?.name}
-                          onChange={(e) => handleInputChange(e, "frequency")}
-                        />
-                      </div>
-                    </div>
-                    <div class="col">
-                      {" "}
-                      <div className="">
-                        <label htmlFor="duration" className="col-form-label">
-                          Duration:
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="duration"
-                          name="duration"
-                          value={inputValue.duration}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="">
-                  <label htmlFor="notes" className="col-form-label">
-                    Notes:
-                  </label>
-                  <textarea
-                    className="form-control"
-                    id="notes"
-                    name="notes"
-                    value={inputValue.notes}
-                    onChange={handleInputChange}
-                    style={{ height: "100px" }}
-                  ></textarea>
-                </div>
               </form>
             </div>
             <div className="modal-footer">
