@@ -86,8 +86,8 @@ import CVSTable from "./masterComponents/CvsTable";
 import { AddEditAll } from "../masterApi/AddEditAll";
 import MasterSideBar from "./MasterSideBar";
 import AddforAll from "../../modal/AddforAll";
-
-
+import SideBar from "./SidebarHomePage";
+import SidebarHomePage from "./SidebarHomePage";
 
 const MedicinePage = () => {
   const [medicines, setMedicines] = useState([]);
@@ -550,7 +550,7 @@ console.log("edit medicines are 789",editMedicine)
         className=" "
         style={{ flexDirection: "row", display: "flex", width: "100%" }}
       >
-        <div
+        {/* <div
           className="col d-flex flex-column align-items-center py-3 me-3  px-2 bg-white mb-1"
           style={{
             borderTopRightRadius: "8px",
@@ -565,14 +565,20 @@ console.log("edit medicines are 789",editMedicine)
         >
           <MasterSideBar handleSideBar={handleSideBar} />
           {/* <Sidebar handleSideBar={handleSideBar} /> */}
-        </div>
+        
+         
+          {/* <MasterSideBar handleSideBar={handleSideBar} /> */}
+        {/* </div> */}
+
+        <SidebarHomePage  handleSideBar={handleSideBar} />
         <div
           className="pe-2"
           style={{
             justifyContent: "space-between",
             display: "flex",
             flexDirection: "column",
-            width: "90%",
+            width: "100%",
+            marginLeft : "60px",
           }}
         >
           <div className="" style={{ flexGrow: 1 }}>

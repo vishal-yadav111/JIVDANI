@@ -23,70 +23,48 @@ import { Profilecard } from '../src/Userdashboard/Profile-screen/Profilecard'
 import { Tablerendder } from './TableReport/TableOp/Tablerendder'
 import MedicinePage from './master/master/MasterMedicinePage'
 
-
-
-
-
-
-
-
-
-
-
-
 function App() {
-
-
   return (
     <>
-    <div>
+      <div>
 
-{/* <Justlogin />
+        {/* <Justlogin />
 <Hook/>
 <Hook2/>  
 <Apiprint />
 <Apireact2 /> */}
 
+        {/* <ul>
+          <li>
+            <NavLink to={'/add'}>add</NavLink><br></br>
+          </li>
+          <li>  <NavLink to={'/Login'}>Login</NavLink></li>
+          <li>  <NavLink to={'/table'}>Table</NavLink></li>
+          <li>  <NavLink to={'/medicine'}>Medicinepage</NavLink></li>
+        </ul> */}
 
-
-<ul>
-  <li>
-   
-   
-    <NavLink to={'/add'}>add</NavLink><br></br>
-    
-  </li>
-  <li>  <NavLink to={'/Login'}>Login</NavLink></li>
-   <li>  <NavLink to={'/table'}>Table</NavLink></li>
-   <li>  <NavLink to={'/medicine'}>Medicinepage</NavLink></li>
-</ul>
-
-<Routes>
-  {/* <Route path='/' element={<Visha />} />  */}
-  {/* <Route  path='/add' element={<Adddata />}/>
+        <Routes>
+          {/* <Route path='/' element={<Visha />} />  */}
+          {/* <Route  path='/add' element={<Adddata />}/>
 <Route path ='/edit/:id' element={<Changestodone />}/> */}
-<Route path ='/' element={<Profilecard />}/>
-<Route path ='/Login' element={<Login />}/>
+          {/* <Route path='/' element={<Profilecard />} /> */}
+          <Route path='/Login' element={<Login />} />
 
-<Route path="/Otp" element={<Otp />} />
-<Route path="/table" element={<Tablerendder/>} />
-<Route path="/medicine" element={<MedicinePage/>} />
+          <Route path="/Otp" element={<Otp />} />
+          <Route path="/table" element={<Tablerendder />} />
+          <Route path="/" element={<MedicinePage />} />
 
 
 
-</Routes>
-{/* <Useaction />
+        </Routes>
+        {/* <Useaction />
 <Usereducer /> */}
 
+        {/* <Useaction /> */}
 
-
-{/* <Useaction /> */}
-
-</div>
+      </div>
     </>
   )
 }
 
-
-// Code checking in github.
 export default App;
