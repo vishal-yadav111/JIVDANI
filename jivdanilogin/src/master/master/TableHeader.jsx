@@ -34,3 +34,6 @@ export const TableHeader = ({ headerName }) => {
     </thead>
   );
 };
+
+
+

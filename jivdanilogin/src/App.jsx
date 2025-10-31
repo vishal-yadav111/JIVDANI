@@ -45,6 +45,7 @@ import TestRequestedTable from './master/master/masterComponents/TestRequestedTa
 import UnitsTable from './master/master/masterComponents/UnitsTable'
 import WhensTable from './master/master/masterComponents/WhensTable'
 import GeneralTable from './master/master/masterComponents/GeneralTable'
+import SidebarHomePage from './master/master/SidebarHomePage'
 
 function App() {
   return (
@@ -52,10 +53,10 @@ function App() {
       <div>
 
         {/* <Justlogin />
-<Hook/>
-<Hook2/>  
-<Apiprint />
-<Apireact2 /> */}
+            <Hook/>
+            <Hook2/>  
+            <Apiprint />
+            <Apireact2 /> */}
 
         {/* <ul>
           <li>
@@ -69,13 +70,22 @@ function App() {
         <Routes>
           {/* <Route path='/' element={<Visha />} />  */}
           {/* <Route  path='/add' element={<Adddata />}/>
-<Route path ='/edit/:id' element={<Changestodone />}/> */}
+              <Route path ='/edit/:id' element={<Changestodone />}/> */}
           {/* <Route path='/' element={<Profilecard />} /> */}
-          {/* <Route path='/Login' element={<Login />} />
 
+          <Route path='/Login' element={<Login />} />
           <Route path="/Otp" element={<Otp />} />
-          <Route path="/table" element={<Tablerendder />} /> */}
-          <Route path="/" element={<MedicinePage />} />
+          <Route path="/table" element={<Tablerendder />} />
+          {/* Layout with sidebar */}
+          <Route path="/" element={<SidebarHomePage />}>
+            <Route index element={<ComplaintsTable />} />
+            <Route path="Complaints" element={<ComplaintsTable />} />
+            <Route path="Investigation" element={<InvestigationTable />} />
+            <Route path="Diagnosis" element={<DiagnosisTable />} />
+           
+          </Route>
+
+          {/* <Route path="/" element={<MedicinePage />} />
           <Route path="/Allergy" element={<AllergyTable/>} />
           <Route path="/CNS" element={<CNSTable/>} />
           <Route path="/Complaints" element={<ComplaintsTable/>} />
@@ -88,24 +98,17 @@ function App() {
           <Route path="/Frequency" element={<FrequencyTable/>} />
           <Route path="/Investigation" element={<InvestigationTable/>} />
           <Route path="/LabTestImaging" element={<LabTestImagingTable/>} />
-           <Route path="/Note" element={<NoteTable/>} />
+          <Route path="/Note" element={<NoteTable/>} />
           <Route path="/PastMedicalHistory" element={<PastMedicalHistory/>} />
           <Route path="/PA" element={<PATable/>} />
           <Route path="/PersonalHistory" element={<PersonalHistory/>} />
           <Route path="/PhysicalExamination" element={<PhysicalExaminationTable/>} />
           <Route path="/PragnancyOutcomes" element={<PragnancyOutcomestable/>} />
-   
           <Route path="/TestRequested" element={<TestRequestedTable/>} />
           <Route path="/Units" element={<UnitsTable/>} />
           <Route path="/Whens" element={<WhensTable/>} />
-   
           <Route path="/RS" element={<RSTable/>} />
-           <Route path="/General" element={<GeneralTable/>} />
-
-
-
-
-
+          <Route path="/General" element={<GeneralTable/>} /> */}
 
         </Routes>
         {/* <Useaction />

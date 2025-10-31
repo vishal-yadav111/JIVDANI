@@ -84,6 +84,12 @@ const menuItems = [
         icon: faBook,
         path: "/Notes",
       },
+      {
+        id: "Investigation",
+        title: "Investigation",
+        icon: faChartBar,
+        path: "/Investigation",
+      },
     ],
   },
   {
@@ -569,3 +575,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
     </div>
   );
 }
+
+
+
+
+
+
+
