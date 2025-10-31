@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Color } from "../../../visitConstant/Color";
 import { faFloppyDisk, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const CVSTable = ({
+const ComplaintsTable = ({
   medicine,
   index,
   indexOfFirstMedicine,
@@ -169,4 +169,4 @@ const CVSTable = ({
   );
 };
 
-export default CVSTable;
+export default ComplaintsTable;

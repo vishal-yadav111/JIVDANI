@@ -64,7 +64,7 @@ const menuItems = [
     id: "Medication",
     icon: faHome,
     title: "Medication",
-    // path: "/dashboard/home",
+    path: "/",
     // active: true,
      subItems: [
       {
@@ -77,37 +77,37 @@ const menuItems = [
         id: "Dosage",
         title: "Dosage",
         icon: faCalendarDays,
-        path: "/",
+        path: "/dosage",
       },
       {
         id: "Units",
         title: "Units",
         icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
+        path: "/Units",
       },
        {
         id: "Whens",
         title: "Whens",
         icon: faFileText,
-        path: "/dashboard/createToken",
+        path: "/Whens",
       },
       {
         id: "Frequency",
         title: "Frequency",
         icon: faCalendarDays,
-        path: "/dashboard/tokenbooking",
+        path: "/Frequency",
       },
       {
         id: "Duration",
         title: "Duration",
         icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
+        path: "Duration",
       },
       {
         id: "Notes",
         title: "Notes",
         icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
+        path: "Notes",
       },
     ],
   },
@@ -120,26 +120,26 @@ const menuItems = [
         id: "Allergies",
         title: "Allergies",
         icon: faFileText,
-        path: "/",
+        path: "/Allergy",
       },
 
       {
         id: "Personal History",
         title: "Personal History",
         icon: faCalendarDays,
-        path: "/dashboard/tokenbooking",
+        path: "/PersonalHistory",
       },
       {
         id: "Past Medical History",
         title: "Past Medical History",
         icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
+        path: "PastMedicalHistory",
       },
       {
         id: "Family History",
         title: "Family History",
         icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
+        path: "FamilyHistory",
       },
     ],
   },
@@ -153,74 +153,9 @@ const menuItems = [
         id: "Complaints",
         title: "Complaints",
         icon: faBed,
-        path: "/dashboard/bed-status",
+        path: "Complaints",
       },
-      {
-        id: "ipdBill",
-        title: "IPD Bill",
-        icon: faDollarSign,
-        path: "/dashboard/ipd-billing",
-      },
-      {
-        id: "paymentDeposit",
-        title: "Payment & Deposit",
-        icon: faCreditCard,
-        path: "/dashboard/payment-deposit",
-      },
-      {
-        id: "dischargeSummary",
-        title: "Discharge Summary",
-        icon: faFileAlt,
-        path: "/dashboard/discharge-summary",
-      },
-      {
-        id: "wardRoom",
-        title: "Ward Room",
-        icon: faDoorOpen,
-        path: "/dashboard/ward-rooms",
-      },
-      {
-        id: "wardTransfer",
-        title: "Ward Transfer",
-        icon: faExchangeAlt,
-        path: "/dashboard/ward-transfer",
-      },
-      {
-        id: "serviceHead",
-        title: "Service",
-        icon: faUserMd,
-        path: "/dashboard/service",
-      },
-      {
-        id: "serviceGroup",
-        title: "Service Group",
-        icon: faUserGroup,
-        path: "/dashboard/service-group",
-      },
-      {
-        id: "city",
-        title: "City",
-        icon: faCity,
-        path: "/dashboard/city",
-      },
-      {
-        id: "organization",
-        title: "Organization",
-        icon: faBuilding,
-        path: "/dashboard/organization",
-      },
-      {
-        id: "tpa",
-        title: "TPA",
-        icon: faHandshake,
-        path: "/dashboard/tpa",
-      },
-      {
-        id: "insuranceCompany",
-        title: "Insurance Company",
-        icon: faShield,
-        path: "/dashboard/insurance-comp",
-      },
+    
     ],
   },
   {
@@ -232,29 +167,16 @@ const menuItems = [
         id: "Diagnosis",
         title: "Diagnosis",
         icon: faDollarSign,
-        path: "/dashboard/OPD-Billing",
+        path: "/Diagnosis",
       },
 
       {
         id: "Duration",
         title: "Duration",
         icon: faClock,
-        path: "/dashboard/tokenPage",
+        path: "/Duration",
       },
-      // {
-      //   id: "queueManagement",
-      //   title: "Queue Management",
-      //   icon: faList,
-      //   // path: "/dashboard/queue-management",
-      //   path: "",
-      // },
-      // {
-      //   id: "consultation",
-      //   title: "Consultation",
-      //   icon: faStethoscope,
-      //   // path: "/dashboard/consultation",
-      //   path: "",
-      // },
+     
     ],
   },
   {
@@ -267,190 +189,55 @@ const menuItems = [
         title: "Lab Test and Imaging",
         icon: faMicroscope,
         // path: "/dashboard/lab-tests",
-        path: "/dashboard/Lab-ServiceHead",
+        path: "/LabTestImaging",
       },
 
-      {
-        id: "Pathology",
-        title: "Pathology",
-        icon: faFlask,
-        // path: "/dashboard/lab-tests",
-        path: "/dashboard/Pathology",
-      },
-
-      {
-        id: "Radiology",
-        title: "Radiology",
-        icon: faXRay,
-        // path: "/dashboard/lab-tests",
-        path: "/dashboard/Readiology",
-      },
-      {
-        id: "labTest",
-        title: "Test Reports",
-        icon: faChartBar,
-        path: "/dashboard/myTokenHistory",
-      },
-
-      // {
-      //   id: "labReports",
-      //   title: "Lab Reports",
-      //   icon: faFileContract,
-      //   //path: "/dashboard/lab-reports",
-      //   path: "/dashboard/myTokenHistory",
-      // },
     ],
   },
-  // {
-  //   id: "billingFinance",
-  //   icon: faMoneyBill,
-  //   title: "Billing & Finance",
-  //   subItems: [
-  //     {
-  //       id: "patientBilling",
-  //       title: "Patient Billing",
-  //       icon: faReceipt,
-  //       path: "/dashboard/OPD-Billing",
-  //     },
-  //     {
-  //       id: "paymentCollection",
-  //       title: "Payment Collection",
-  //       icon: faCreditCard,
-  //       // path: "/dashboard/payment-collection",
-  //       path: "",
-  //     },
-  //     {
-  //       id: "insuranceClaims",
-  //       title: "Insurance Claims",
-  //       icon: faUniversity,
-  //       //path: "/dashboard/insurance-claims",
-  //       path: "",
-  //     },
-  //     {
-  //       id: "financialReports",
-  //       title: "Financial Reports",
-  //       icon: faChartLine,
-  //       //path: "/dashboard/financial-reports",
-  //       path: "",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "staffManagement",
-  //   icon: faUserTie,
-  //   title: "Staff Management",
-
-  //   subItems: [
-  //     {
-  //       id: "manageStaff",
-  //       title: "Hospital Staff",
-  //       icon: faUsers,
-  //       path: "/dashboard/manage-Employee",
-  //     },
-  //     {
-  //       id: "dailyattendance",
-  //       title: "Daily Attendance",
-  //       icon: faUsers,
-  //       path: "/dashboard/attendance",
-  //     },
-
-  //     {
-  //       id: "attendanceReport",
-  //       title: "Attendance Report",
-  //       icon: faClockFour,
-  //       path: "/dashboard/generate-Report",
-  //     },
-  //     {
-  //       id: "shiftDepartment",
-  //       title: "Shift & Department",
-  //       icon: faBuildingShield,
-  //       path: "/dashboard/shift-Department",
-  //     },
-
-  //   ],
-  // },
-
-  // {
-  //   id: "advertisement",
-  //   icon: faBullhorn,
-  //   title: "Advertisement",
-  //   path: "/dashboard/advertisement-Form",
-  //   active: true,
-  //   subItems: [],
-  // },
-  // {
-  //   id: "allMaster",
-  //   icon: faDatabase,
-  //   title: "All Master",
-  //   active: true,
-  //   subItems: [],
-
-  //   // subItems: [
-  //   //   {
-  //   //     id: "medicine",
-  //   //     title: "Medicine",
-  //   //     icon: faPills,
-  //   //     // path: "/dashboard/medicine",
-  //   //     path: "",
-  //   //   },
-  //   //   {
-  //   //     id: "diagnosis",
-  //   //     title: "Diagnosis",
-  //   //     icon: faDiagnoses,
-  //   //     path: "/dashboard/diagnosis",
-  //   //   },
-  //   //   {
-  //   //     id: "history",
-  //   //     title: "History",
-  //   //     icon: faHistory,
-  //   //     path: "/dashboard/history",
-  //   //   },
-  //   //   {
-  //   //     id: "complaints",
-  //   //     title: "Complaints",
-  //   //     icon: faCommentMedical,
-  //   //     path: "/dashboard/complaints",
-  //   //   },
-  //   //   {
-  //   //     id: "investigations",
-  //   //     title: "Investigations",
-  //   //     icon: faSearch,
-  //   //     path: "/dashboard/investigations",
-  //   //   },
-  //   // ],
-  // },
+ 
+ 
   {
-    id: "reports",
-    icon: faChartBar,
-    title: "Reports",
-    path: "/dashboard/dailyReport",
-    active: true,
-    subItems: [],
-  },
-  {
-    id: "MISReport",
+    id: "Systemic EXamination",
     icon: faFolder,
-    title: "MIS Report",
+    title: "Systemic EXamination",
     active: false,
-    subItems: [],
+   
     subItems: [
       {
-        id: "PtRegistrationAndDischargeWise",
-        title: "Pt.Reg & DischargeWise",
+        id: "General",
+        title: "General",
         icon: faFolder,
-        path: "/dashboard/PtRegistrationAndDischargeWise",
+        path: "/General",
       },
       {
-        id: " MisOutStandingWise",
-        title: " MIS Out Standing Wise",
+        id: " CVS",
+        title: " CVS",
         icon: faFolder,
-        path: "/dashboard/MisOutStandingWise",
+        path: "/CVS",
       },
       {
-        id: " MisCollection",
-        title: " MIS Collection",
+        id: " RS",
+        title: "RS",
         icon: faFolder,
-        path: "/dashboard/MisCollection",
+        path: "/RS",
+      },
+            {
+        id: "CNS",
+        title: "CNS",
+        icon: faFolder,
+        path: "/CNS",
+      },
+      {
+        id: " PA",
+        title: " PA",
+        icon: faFolder,
+        path: "/PA",
+      },
+      {
+        id: " ENT",
+        title: "ENT",
+        icon: faFolder,
+        path: "/ENT",
       },
       // {
       //   id: "backupRestore",
@@ -466,6 +253,39 @@ const menuItems = [
       // },
     ],
   },
+    {
+    id: "Obstetric History",
+    icon: faFolder,
+    title: "Obstetric History",
+    active: false,
+   
+    subItems: [
+      {
+        id: "Pragnancy Outcomes",
+        title: "Pragnancy Outcomes",
+        icon: faFolder,
+        path: "/PragnancyOutcome",
+      },
+
+    ],
+  },
+     {
+    id: "Test Requested",
+    icon: faFolder,
+    title: "Test Requested",
+    active: false,
+   
+    subItems: [
+      {
+        id: "Test Requested",
+        title: "Test",
+        icon: faFolder,
+        path: "/TestRequested",
+      },
+
+    ],
+  },
+  
 ];
 
 const DoctorItems = [
