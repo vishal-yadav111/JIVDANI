@@ -17,12 +17,9 @@ export const AddEditAll = async ({ categoryId, name,id}) => {
       pubInfo: { sessionId: localStorage.getItem(SESSION_ID) },
       request: {
         busiParams: {
-         
-           categoryId: categoryId,
-           
+            categoryId: categoryId,
             id:id,
             name:name
-
           // contents: content ?? data?.contents,
           // active: true,
         },
@@ -46,7 +43,36 @@ export const AddEditAll = async ({ categoryId, name,id}) => {
     console.log(response, " comfing from EDIt all medicine ");
     return true;
   } catch (error) {
-    console.log(error, " coming from addMedicine");
+    console.log(error, " coming from category data");
     return false;
   }
 };
+export const fetchCategoryData = async ({categoryId}) =>{
+  try{
+    const payload ={
+      pubInfo : {sessionId : localStorage.getItem(SESSION_ID)},
+      request: {
+        busiParams :{
+          categoryId: categoryId,
+        }
+      },
+      isEncrypt: false,
+      transactionId: "897987987989",
+    };
+
+    const response = await axios.post(
+      BASE_URL + addNewDataForAll,
+      JSON.stringify(payload),
+       {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem(ACCESS_TOKEN),
+        },
+      }
+    );
+    return response.data;
+  }catch(error){
+    console.log(error, " fetch data by category");
+    return false;
+  }
+}
