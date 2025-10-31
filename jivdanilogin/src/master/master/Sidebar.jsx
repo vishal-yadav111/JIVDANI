@@ -109,6 +109,12 @@ const menuItems = [
         icon: faChartBar,
         path: "Notes",
       },
+      {
+        id: "Investigation",
+        title: "Investigation",
+        icon: faChartBar,
+        path: "/Investigation",
+      },
     ],
   },
   {
@@ -153,7 +159,7 @@ const menuItems = [
         id: "Complaints",
         title: "Complaints",
         icon: faBed,
-        path: "Complaints",
+        path: "/Complaints",
       },
     
     ],

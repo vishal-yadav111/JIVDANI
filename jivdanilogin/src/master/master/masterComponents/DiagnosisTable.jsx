@@ -2,19 +2,20 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Color } from "../../../visitConstant/Color";
 import { faFloppyDisk, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { AddEditAll } from "../../masterApi/AddEditAll";
 
-const DiagnosisTable = ({
-  medicine,
-  index,
-  indexOfFirstMedicine,
-  editingId,
-  editMedicine,
-  handleEditChange,
-  saveEdit,
-  handleEdit,
-  handleDelete,
-}) => {
+const DiagnosisTable = () => {
  // console.log("medicine", medicine);
+
+  // medicine,
+  // index,
+  // indexOfFirstMedicine,
+  // editingId,
+  // editMedicine,
+  // handleEditChange,
+  // saveEdit,
+  // handleEdit,
+  // handleDelete,
 
   return (
     <tr
@@ -127,7 +128,7 @@ const DiagnosisTable = ({
                 cursor: "pointer",
                 marginLeft: "15px", // Set larger margin-left to push the save icon to the right
               }}
-              onClick={saveEdit}
+              onClick={AddEditAll}
             />
             <FontAwesomeIcon
               // icon="fa-solid fa-trash"
@@ -137,7 +138,7 @@ const DiagnosisTable = ({
                 cursor: "pointer",
                 marginLeft: "15px", // Set larger margin-left to push delete icon to the right
               }}
-              onClick={() => handleDelete(medicine.id)}
+              // onClick={() => handleDelete(medicine.id)}
             />
           </>
         ) : (
@@ -150,7 +151,9 @@ const DiagnosisTable = ({
                 marginLeft: "15px", // Set larger margin-left to push edit icon to the right
                 color: "gray",
               }}
-              onClick={() => handleEdit(medicine.id, medicine)}
+              // onClick={() => handleEdit(medicine.id, medicine)}
+
+              onClick={() => AddEditAll(medicine.id, medicine)}
             />
             <FontAwesomeIcon
               // icon="fa-solid fa-trash"
@@ -160,7 +163,7 @@ const DiagnosisTable = ({
                 cursor: "pointer",
                 marginLeft: "15px",
               }}
-              onClick={() => handleDelete(medicine.id)}
+              // onClick={() => handleDelete(medicine.id)}
             />
           </>
         )}
