@@ -5,6 +5,7 @@ import { AddEditMedicine } from "../master/masterApi/AddEditMedicine";
 import ToastFist from "../Toast/ToastFist";
 import { ERROR_MSG ,DATA_SAVED} from "../master/Constant";
 import { AddEditAll } from "../master/masterApi/AddEditAll";
+import { Color } from "../visitConstant/Color";
 
 const AddforAll = ({ customeKey }) => {
 
@@ -71,7 +72,7 @@ const AddforAll = ({ customeKey }) => {
       <div data-bs-toggle="modal"
         data-bs-target="#Medicine">
         {customeKey ?
-          <button className="btn btn-primary" style={{ fontSize: 15, }}>Create New +</button>
+          <button className="btn text-white" style={{ fontSize: 15,  background: Color.primary}}>Create New +</button>
           : 
           <CustomTooltip
             icon="fa-solid fa-square-plus"

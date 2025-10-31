@@ -18,8 +18,9 @@ import AddforAll from "../../modal/AddforAll";
 import SidebarHomePage from "../SidebarHomePage";
 import { TableHeader } from "../../master/master/TableHeader";
 import { Complaints } from "../../master/master/HeaderData";
+import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";
+import { downloadCSV } from "../../master/master/Utils";
 
-// Optional: Create a simple Error Boundary (if ComplaintsTable might throw errors during render)
 class ComplaintsErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -56,7 +57,6 @@ class ComplaintsErrorBoundary extends React.Component {
 
 const ComplaintsScreen = () => {
   const [error, setError] = useState(null);
-
   const [medicines, setMedicines] = useState([]);
   const [search, setSearch] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
@@ -71,6 +71,7 @@ const ComplaintsScreen = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageable, setPageable] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [tableLoading, setTableLoading] = useState(false);
 
   // Edit state for complaints (only name field needed)
   const [editMedicine, setEditMedicine] = useState({
@@ -98,18 +99,26 @@ const ComplaintsScreen = () => {
   }, []);
 
   useEffect(() => {
-    if (debouncedInput) {
-      setLoading(true);
-      getData(debouncedInput);
+    if (debouncedInput !== null) {
+      getData(debouncedInput, rowsPerPage, 1, catId, false);
     }
   }, [debouncedInput]);
+
+
 
   const getData = async (
     searchKey = "",
     PerPage = 50,
     crntPage = 1,
-    activeCatId
+    activeCatId,
+    showLoader = true
   ) => {
+    if (showLoader) {
+      setLoading(true);
+      setTableLoading(false);
+    } else {
+      setTableLoading(true);
+    }
     try {
       const results = await MasterApi(
         !activeCatId ? Categories.COMPLAINTS.catID : activeCatId,
@@ -134,17 +143,31 @@ const ComplaintsScreen = () => {
       console.error("Error fetching API data:", error);
     } finally {
       setLoading(false);
+      setTableLoading(false);
     }
   };
 
+  // const handleSearch = (searchKey) => {
+  //   if (searchKey) {
+  //     setSearch(searchKey);
+  //   } else {
+  //     setSearch("");
+  //     getData("", rowsPerPage, currentPage);
+  //   }
+  //   setCurrentPage(1);
+  // };
+
   const handleSearch = (searchKey) => {
-    if (searchKey) {
-      setSearch(searchKey);
-    } else {
-      setSearch("");
-      getData("", rowsPerPage, currentPage);
-    }
+    setSearch(searchKey);
     setCurrentPage(1);
+
+    if (searchKey.trim() === "") {
+      // when input empty — only reload table body
+      getData("", rowsPerPage, currentPage, catId, false);
+    } else {
+      // while typing — trigger debounce
+      // debounce hook will call getData with table loader
+    }
   };
 
   const handleEdit = (id, med) => {
@@ -234,9 +257,8 @@ const ComplaintsScreen = () => {
 
   const clearSearch = () => {
     setSearch("");
-    getData("", rowsPerPage, currentPage);
+    getData("", rowsPerPage, currentPage, catId, false);
   };
-
 
 
   if (loading) {
@@ -261,8 +283,8 @@ const ComplaintsScreen = () => {
   }
 
   return (
-    <div className="p-4 bg-white rounded shadow-sm">
-      <h4 className="mb-3">Complaints</h4>
+    <div className=" bg-white rounded shadow-sm">
+      {/* <h4 className="mb-3">Complaints</h4> */}
       <ComplaintsErrorBoundary>
         <div
           className="bg-light w-100"
@@ -272,7 +294,6 @@ const ComplaintsScreen = () => {
             overflow: "hidden",
             width: "100%",
             borderRadius: "8px",
-            border: "1px solid #ccc",
           }}
         >
           {/* Header Section */}
@@ -293,25 +314,27 @@ const ComplaintsScreen = () => {
               {search ? (
                 <FontAwesomeIcon
                   icon={faXmark}
-                  className="text-primary"
+                  className=""
                   style={{
                     position: "absolute",
                     right: "15px",
                     top: "50%",
                     transform: "translateY(-50%)",
                     cursor: "pointer",
+                    color: Color.primary,
                   }}
                   onClick={clearSearch}
                 />
               ) : (
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
-                  className="text-primary"
+                  className=""
                   style={{
                     position: "absolute",
                     right: "15px",
                     top: "50%",
                     transform: "translateY(-50%)",
+                    color: Color.primary,
                   }}
                 />
               )}
@@ -344,7 +367,7 @@ const ComplaintsScreen = () => {
                 display: "flex",
                 flexDirection: "column",
                 width: "100%",
-                marginLeft: "60px",
+                // marginLeft: "0px",
               }}
             >
               <div className="" style={{ flexGrow: 1 }}>
@@ -370,8 +393,22 @@ const ComplaintsScreen = () => {
                       width: "100%",
                     }}
                   >
-                    {loading ? (
-                      <Loader />
+                    {tableLoading ? (
+                      <tr
+                        style={{
+                          display: "table",
+                          width: "100%",
+                          tableLayout: "fixed",
+                          height: "300px",
+                        }}
+                      >
+                        <td colSpan="3" className="text-center align-middle">
+                          <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                          <p className="text-muted mt-2">Loading data...</p>
+                        </td>
+                      </tr>
                     ) : Array.isArray(medicines) && medicines.length > 0 ? (
                       medicines.map((medicine, index) => (
                         <ComplaintsTable
@@ -405,6 +442,7 @@ const ComplaintsScreen = () => {
                       </tr>
                     )}
                   </tbody>
+
                 </table>
               </div>
 

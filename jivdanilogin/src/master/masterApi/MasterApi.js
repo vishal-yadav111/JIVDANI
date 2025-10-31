@@ -31,8 +31,8 @@ export const MasterApi = async (catID, currentPage, searchKey = "A", rowsPerPage
                     Authorization: "Bearer " + localStorage.getItem(ACCESS_TOKEN),
                 },
             });
-            console.log("respose of api ",response.data.respData)
-             console.log("request of api ",payload)
+            console.log("respose of api ",response.data.respData.respMsg)
+            console.log("request of api ",payload)
           
 
         return response.data.respData.respMsg || [];

@@ -58,3 +58,4 @@ export const GETTEMPLATEBYCATIDANDTEMID= "getTemplateByCatIdAndTempId";
  export const getLabTestTokensByDateRange= "getLabTestTokensByDateRange";
 export const   DATA_SAVED= "Data saved susccessfully";
 export const addNewDataForAll="addNewDataForAll"
+

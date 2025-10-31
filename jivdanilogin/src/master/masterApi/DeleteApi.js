@@ -24,7 +24,8 @@ export const DeleteApi = async (catID, itemID) => {
         Authorization: "Bearer " + localStorage.getItem(ACCESS_TOKEN),
       },
     });
-
+    console.log("respose of delete api ",response.data.respData.respMsg)
+    console.log("request of delete api ",payload)    
     return true;
   } catch (error) {
     return false;
