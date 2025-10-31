@@ -1,5 +1,3 @@
-// src/components/screens/ComplaintsScreen.jsx
-
 import React, { useState, useEffect } from "react";
 import ComplaintsTable from "../../master/master/masterComponents/ComplaintsTable";
 import { MasterApi } from "../../master/masterApi/MasterApi";
