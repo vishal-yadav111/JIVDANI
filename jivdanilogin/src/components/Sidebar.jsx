@@ -11,8 +11,25 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome, faUsers, faFileText, faCalendarDays, faChartBar, faHospital,
-  faBed, faFlask, faMicroscope, faFolder, faDollarSign, faClock,
-  faUserNurse,
+  faBed, faFlask, faMicroscope, faFolder, 
+ 
+  faAllergies,
+  faUsersLine,
+  faFileMedical,
+  faNoteSticky,
+  faBriefcaseMedical,
+  faStopwatch,
+  faStethoscope,
+  faHeart,
+  faBrain,
+  faUserDoctor,
+  faFaceMeh,
+  faPersonPregnant,
+  faSyringe,
+  faDroplet,
+  faQuestion,
+  faRepeat,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -28,6 +45,11 @@ const menuItems = [
       { id: "Medicine Analyst", title: "Medicine Analyst", icon: faFileText, path: "/" },
       { id: "Dosage", title: "Dosage", icon: faCalendarDays, path: "/dosage" },
       { id: "Units", title: "Units", icon: faChartBar, path: "/Units" },
+
+             { title: "Whens", id: "Whens", icon: faQuestion ,path: "/Whens"},
+        { title: "Frequency", id: "Frequency",   icon: faRepeat ,path: "/Frequency" },
+     
+        { title: "Notes",id: "Notes",  icon: faBook ,path: "/Notes"},
       // ... other Medication items
     ],
   },
@@ -36,7 +58,10 @@ const menuItems = [
     icon: faUsers,
     title: "History",
     subItems: [
-      { id: "Allergies", title: "Allergies", icon: faFileText, path: "/Allergy" },
+      { id: "Allergies", title: "Allergies", icon:faAllergies, path: "/Allergy" },
+      { id: "Personal History", title: "Personal History", icon:faNoteSticky, path: "/PersonalHistory" },
+      { id: "Past Medical History", title: "Past Medical History", icon:faFileMedical, path: "/PastMedicalHistory" },
+      { id: "Family History", title: "Family History", icon:faUsersLine, path: "/FamilyHistory" },
       // ... other History items
     ],
   },
@@ -51,11 +76,11 @@ const menuItems = [
   // ... (rest of your original menuItems array goes here)
   {
     id: "Diagnosis",
-    icon: faUserNurse,
+    icon: faBriefcaseMedical,
     title: "Diagnosis",
     subItems: [
-      { id: "Diagnosis", title: "Diagnosis", icon: faDollarSign, path: "/Diagnosis" },
-      { id: "Duration", title: "Duration", icon: faClock, path: "/Duration" },
+      { id: "Diagnosis", title: "Diagnosis", icon: faBriefcaseMedical, path: "/Diagnosis" },
+      { id: "Duration", title: "Duration", icon: faStopwatch, path: "/Duration" },
     ],
   },
   {
@@ -72,30 +97,47 @@ const menuItems = [
     title: "Systemic EXamination",
     active: false,
     subItems: [
-      { id: "General", title: "General", icon: faFolder, path: "/General" },
-      { id: " CVS", title: " CVS", icon: faFolder, path: "/CVS" },
-      { id: " RS", title: "RS", icon: faFolder, path: "/RS" },
-      { id: "CNS", title: "CNS", icon: faFolder, path: "/CNS" },
-      { id: " PA", title: " PA", icon: faFolder, path: "/PA" },
-      { id: " ENT", title: "ENT", icon: faFolder, path: "/ENT" },
+      { id: "General", title: "General", icon: faStethoscope, path: "/General" },
+      { id: " CVS", title: " CVS", icon: faHeart, path: "/CVS" },
+      { id: " RS", title: "RS", icon: faBrain, path: "/RS" },
+      { id: "CNS", title: "CNS", icon: faBrain, path: "/CNS" },
+      { id: " PA", title: " PA", icon: faUserDoctor, path: "/PA" },
+      { id: " ENT", title: "ENT", icon: faFaceMeh, path: "/ENT" },
     ],
   },
   {
     id: "Obstetric History",
-    icon: faFolder,
+    icon: faPersonPregnant,
     title: "Obstetric History",
     active: false,
     subItems: [
-      { id: "Pragnancy Outcomes", title: "Pragnancy Outcomes", icon: faFolder, path: "/PragnancyOutcomes" },
+      { id: "Pragnancy Outcomes", title: "Pragnancy Outcomes", icon: faPersonPregnant, path: "/PragnancyOutcomes" },
     ],
   },
+
+   {
+      id: "Investigation",
+      icon: faSyringe,
+      title: "Investigation",
+      active: false,
+     
+      subItems: [
+        {
+          id: "Investigation",
+          title: "Investigation",
+          icon: faSyringe,
+          path: "/Investigation",
+        },
+  
+      ],
+    },
   {
     id: "Test Requested",
-    icon: faFolder,
+    icon: faDroplet,
     title: "Test Requested",
     active: false,
     subItems: [
-      { id: "Test Requested", title: "Test", icon: faFolder, path: "/TestRequested" },
+      { id: "Test Requested", title: "Test", icon: faDroplet, path: "/TestRequested" },
     ],
   },
 ];
@@ -182,6 +224,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         sidebarOpen ? "sidebar-open" : "sidebar-closed"
       }`}
       style={{
+        scrollbarWidth:'none',
         width: sidebarOpen ? "280px" : "70px",
         zIndex: 1000,
         transition: "all 0.3s ease",

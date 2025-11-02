@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Color } from "../../../visitConstant/Color";
 import { faFloppyDisk, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const ComplaintsTable = ({
+const CommonTableForAll = ({
   medicine,
   index,
   indexOfFirstMedicine,
@@ -18,7 +18,7 @@ const ComplaintsTable = ({
 
   return (
     <tr
-      className="mt-2"
+      className="mt-2 mx-2"
       key={medicine.id}
       style={{
         display: "table",
@@ -169,7 +169,7 @@ const ComplaintsTable = ({
   );
 };
 
-export default ComplaintsTable;
+export default CommonTableForAll;
 
 
 

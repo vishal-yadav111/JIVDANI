@@ -96,12 +96,13 @@ export const TableFooter = ({
   const indexOfFirstMedicine = indexOfLastMedicine - rowsPerPage;
 
   return (
+    <div >
     <div
       className="d-flex justify-content-between align-items-center mt-1 bg-white flex-wrap rounded py-1 px-2 col-12"
       style={{ minHeight: 46 }}
     >
       {/* Rows Per Page Selector */}
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center" style={{}}>
         <label htmlFor="rowsPerPage" className="me-2" style={{ fontSize: 14 }}>
           Rows per page
         </label>
@@ -160,6 +161,7 @@ export const TableFooter = ({
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

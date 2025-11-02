@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import ComplaintsTable from "../../master/master/masterComponents/CommonTableForAll";
 import { MasterApi } from "../../master/masterApi/MasterApi";
@@ -17,10 +18,9 @@ import { Color } from "../../visitConstant/Color";
 import AddforAll from "../../modal/AddforAll";
 import SidebarHomePage from "../SidebarHomePage";
 import { TableHeader } from "../../master/master/TableHeader";
-import { ALLERGIES_HEADER, Complaints } from "../../master/master/HeaderData";
+import { ALLERGIES_HEADER, Complaints, UNITS_HEADER } from "../../master/master/HeaderData";
 import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";
 import { downloadCSV } from "../../master/master/Utils";
-import CommonTableForAll from "../../master/master/masterComponents/CommonTableForAll";
 
 class ComplaintsErrorBoundary extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class ComplaintsErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("ComplaintsTable Error:", error, errorInfo);
+    console.error("Units Error:", error, errorInfo);
   }
 
   render() {
@@ -41,7 +41,7 @@ class ComplaintsErrorBoundary extends React.Component {
       return (
         <div className="alert alert-danger" role="alert">
           <h5 className="alert-heading">Oops! Something went wrong.</h5>
-          <p>We couldn't load the Allergy table. Please try again later.</p>
+          <p>We couldn't load the Units table. Please try again later.</p>
           <button
             className="btn btn-outline-primary btn-sm mt-2"
             onClick={() => window.location.reload()}
@@ -56,7 +56,7 @@ class ComplaintsErrorBoundary extends React.Component {
   }
 }
 
-const AllergiesScreen = () => {
+const UnitScreen = () => {
   const [error, setError] = useState(null);
   const [medicines, setMedicines] = useState([]);
   const [search, setSearch] = useState("");
@@ -67,14 +67,14 @@ const AllergiesScreen = () => {
   const [showToast, setShowToast] = useState(false);
   const [colorStatus, setColorStatus] = useState(3);
   const [toastMsg, setToastMsg] = useState("");
-  const [catId, setCatId] = useState(Categories.ALLERGIES.catID);
+  const [catId, setCatId] = useState(Categories.UNITS.catID);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageable, setPageable] = useState([]);
   const [loading, setLoading] = useState(false);
   const [tableLoading, setTableLoading] = useState(false);
 
-
+  // Edit state for Units (only name field needed)
   const [editMedicine, setEditMedicine] = useState({
     id: "",
     name: "",
@@ -122,7 +122,7 @@ const AllergiesScreen = () => {
     }
     try {
       const results = await MasterApi(
-        !activeCatId ? Categories.ALLERGIES.catID : activeCatId,
+        !activeCatId ? Categories.UNITS.catID : activeCatId,
         crntPage,
         searchKey,
         PerPage
@@ -268,7 +268,7 @@ const AllergiesScreen = () => {
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <p className="mt-2 text-muted">Loading Allergy...</p>
+        <p className="mt-2 text-muted">Loading Units...</p>
       </div>
     );
   }
@@ -277,7 +277,7 @@ const AllergiesScreen = () => {
     return (
       <div className="p-4 bg-white rounded shadow-sm">
         <div className="alert alert-warning" role="alert">
-          Failed to load Allergy: {error.message}
+          Failed to load Units: {error.message}
         </div>
       </div>
     );
@@ -285,7 +285,7 @@ const AllergiesScreen = () => {
 
   return (
     <div className=" bg-white rounded shadow-sm">
-      {/* <h4 className="mb-3">Complaints</h4> */}
+      {/* <h4 className="mb-3">Dosage</h4> */}
       <ComplaintsErrorBoundary>
         <div
           className="bg-light w-100"
@@ -302,11 +302,11 @@ const AllergiesScreen = () => {
             className="d-flex justify-content-between align-items-center mb-2 pe-4 pt-4 float-end"
             style={{ width: "90%" }}
           >
-            <h6 style={{ color: Color.primary }}>Allergies </h6>
+            <h6 style={{ color: Color.primary }}>Units</h6>
             <div className="position-relative w-50">
               <input
                 type="text"
-                placeholder="Search Allergies..."
+                placeholder="Search Units..."
                 value={search}
                 onChange={(e) => handleSearch(e.target.value.toUpperCase())}
                 className="form-control pe-5"
@@ -377,7 +377,7 @@ const AllergiesScreen = () => {
                   className="table-fixed table-borderless"
                   style={{ width: "100%", borderRadius: 8, overflow: "hidden" }}
                 >
-                  <TableHeader headerName={ALLERGIES_HEADER} />
+                  <TableHeader headerName={UNITS_HEADER} />
                 </table>
 
                 {/* Table body */}
@@ -412,7 +412,7 @@ const AllergiesScreen = () => {
                       </tr>
                     ) : Array.isArray(medicines) && medicines.length > 0 ? (
                       medicines.map((medicine, index) => (
-                        <CommonTableForAll
+                        <ComplaintsTable
                           key={medicine.id}
                           medicine={medicine}
                           index={index}
@@ -438,7 +438,7 @@ const AllergiesScreen = () => {
                           className="text-center align-upper"
                           style={{ height: "400px" }}
                         >
-                          No Allergy found.🩺🥼🫀
+                          No Units found.🩺🥼🫀
                         </td>
                       </tr>
                     )}
@@ -523,4 +523,4 @@ const AllergiesScreen = () => {
   );
 };
 
-export default AllergiesScreen;
+export default UnitScreen;

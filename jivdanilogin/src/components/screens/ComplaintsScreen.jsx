@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import ComplaintsTable from "../../master/master/masterComponents/ComplaintsTable";
+import ComplaintsTable from "../../master/master/masterComponents/CommonTableForAll";
 import { MasterApi } from "../../master/masterApi/MasterApi";
 import useDebounce from "../../useDebounce/useDebounce/useDebounce";
 import { AddEditAll } from "../../master/masterApi/AddEditAll";
@@ -20,6 +21,7 @@ import { TableHeader } from "../../master/master/TableHeader";
 import { Complaints } from "../../master/master/HeaderData";
 import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";
 import { downloadCSV } from "../../master/master/Utils";
+import CommonTableForAll from "../../master/master/masterComponents/CommonTableForAll";
 
 class ComplaintsErrorBoundary extends React.Component {
   constructor(props) {
@@ -411,7 +413,7 @@ const ComplaintsScreen = () => {
                       </tr>
                     ) : Array.isArray(medicines) && medicines.length > 0 ? (
                       medicines.map((medicine, index) => (
-                        <ComplaintsTable
+                        <CommonTableForAll
                           key={medicine.id}
                           medicine={medicine}
                           index={index}

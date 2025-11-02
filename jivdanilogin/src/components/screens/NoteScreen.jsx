@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import ComplaintsTable from "../../master/master/masterComponents/CommonTableForAll";
 import { MasterApi } from "../../master/masterApi/MasterApi";
@@ -41,7 +42,7 @@ class ComplaintsErrorBoundary extends React.Component {
       return (
         <div className="alert alert-danger" role="alert">
           <h5 className="alert-heading">Oops! Something went wrong.</h5>
-          <p>We couldn't load the Allergy table. Please try again later.</p>
+          <p>We couldn't load the Notes table. Please try again later.</p>
           <button
             className="btn btn-outline-primary btn-sm mt-2"
             onClick={() => window.location.reload()}
@@ -56,7 +57,7 @@ class ComplaintsErrorBoundary extends React.Component {
   }
 }
 
-const AllergiesScreen = () => {
+const NoteScreen = () => {
   const [error, setError] = useState(null);
   const [medicines, setMedicines] = useState([]);
   const [search, setSearch] = useState("");
@@ -74,7 +75,7 @@ const AllergiesScreen = () => {
   const [loading, setLoading] = useState(false);
   const [tableLoading, setTableLoading] = useState(false);
 
-
+  // Edit state for complaints (only name field needed)
   const [editMedicine, setEditMedicine] = useState({
     id: "",
     name: "",
@@ -268,7 +269,7 @@ const AllergiesScreen = () => {
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <p className="mt-2 text-muted">Loading Allergy...</p>
+        <p className="mt-2 text-muted">Loading Notes...</p>
       </div>
     );
   }
@@ -277,7 +278,7 @@ const AllergiesScreen = () => {
     return (
       <div className="p-4 bg-white rounded shadow-sm">
         <div className="alert alert-warning" role="alert">
-          Failed to load Allergy: {error.message}
+          Failed to load Notes: {error.message}
         </div>
       </div>
     );
@@ -302,11 +303,11 @@ const AllergiesScreen = () => {
             className="d-flex justify-content-between align-items-center mb-2 pe-4 pt-4 float-end"
             style={{ width: "90%" }}
           >
-            <h6 style={{ color: Color.primary }}>Allergies </h6>
+            <h6 style={{ color: Color.primary }}>Notes</h6>
             <div className="position-relative w-50">
               <input
                 type="text"
-                placeholder="Search Allergies..."
+                placeholder="Search Notes..."
                 value={search}
                 onChange={(e) => handleSearch(e.target.value.toUpperCase())}
                 className="form-control pe-5"
@@ -438,7 +439,7 @@ const AllergiesScreen = () => {
                           className="text-center align-upper"
                           style={{ height: "400px" }}
                         >
-                          No Allergy found.🩺🥼🫀
+                          No Notesfound.🩺🥼🫀
                         </td>
                       </tr>
                     )}
@@ -448,7 +449,7 @@ const AllergiesScreen = () => {
               </div>
 
               {/* Footer */}
-              <div style={{ flexShrink: 0 }}>
+              <div style={{ flexShrink: 0, }}>
                 <TableFooter
                   rowsPerPage={rowsPerPage}
                   handleRowsPerPageChange={handleRowsPerPageChange}
@@ -523,4 +524,4 @@ const AllergiesScreen = () => {
   );
 };
 
-export default AllergiesScreen;
+export default NoteScreen;

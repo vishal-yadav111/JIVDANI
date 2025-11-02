@@ -140,6 +140,11 @@ export const PREGNANCY_OUTCOME_HEADER= [
   { title: "Pregnancy Outcomes", w: "300px" },
   { title: "Action", w: "100px" },
 ];
+export const FAMILY_HISTORY_HEADER= [
+  { title: "No.", w: "60px" },
+  { title: "Family History", w: "300px" },
+  { title: "Action", w: "100px" },
+];
 
 
 

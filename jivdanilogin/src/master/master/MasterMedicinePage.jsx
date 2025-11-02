@@ -56,7 +56,7 @@ import ToastFist from "../../Toast/ToastFist";
 
 import DiagnosisTable from "./masterComponents/DiagnosisTable";
 import InvestigationTable from "./masterComponents/InvestigationTable";
-import ComplaintsTable from "./masterComponents/ComplaintsTable";
+import ComplaintsTable from "./masterComponents/CommonTableForAll";
 
 import { ERROR_MSG ,DATA_SAVED} from "../Constant";
 import { faDownload, faFloppyDisk, faMagnifyingGlass, faPencil, faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -130,11 +130,7 @@ const MedicinePage = () => {
     active: true,
   });
 
-    const [EditMedicineforAll, setEditMedicineforAll] = useState({
-    id: "",
-    name: "",
-  });
-
+ 
 
 
 
@@ -175,17 +171,6 @@ const MedicinePage = () => {
       active: true,
     });
   };
-
-
-   const resetTheValueforAll = () => {
-    setEditingId(null);
-    setEditMedicine({
-      id: "",
-      name: "",
-      
-    });
-  };
-
   const handleSideBar = (clickedCatId) => {
     setCatId(clickedCatId);
     setRowsPerPage(50)
@@ -312,16 +297,7 @@ const MedicinePage = () => {
   };
 
 
-    const handleEditforAll = (id, med) => {
-    console.log("handle edit function call",id);
-    setEditingId(id);
-
-      setEditMedicineforAll({
-      id: med?.id,
-      name: med?.name,
-  
-    });
-  };
+   
 
 
 
@@ -442,7 +418,7 @@ console.log("edit medicines are 789",editMedicine)
          width: "100%",
                  
         borderRadius: "8px",
-        border: "1px solid #ccc",
+       
       
      
     
@@ -551,7 +527,7 @@ console.log("edit medicines are 789",editMedicine)
           {/* <MasterSideBar handleSideBar={handleSideBar} /> */}
         {/* </div> */}
 
-        <SidebarHomePage  handleSideBar={handleSideBar} />
+
         <div
           className="pe-2"
           style={{
@@ -559,7 +535,7 @@ console.log("edit medicines are 789",editMedicine)
             display: "flex",
             flexDirection: "column",
             width: "100%",
-            marginLeft : "60px",
+            marginLeft : "10px",
           }}
         >
           <div className="" style={{ flexGrow: 1 }}>
@@ -576,53 +552,7 @@ console.log("edit medicines are 789",editMedicine)
                 headerName={
                   catId == Categories.MEDICINE.catID
                     ? MedicineHeader
-                    : catId == Categories.DIAGNOSIS.catID
-                    ? DiagnosisHeader
-                    : catId == Categories.INVESTIGATIONS.catID
-                    ? InvestigationHeader
-                    : catId == Categories.COMPLAINTS.catID
-                    ? Complaints
-                      : catId == Categories.GENERAL.catID
-                    ? generalExaminations
-                       : catId == Categories.WHENS.catID
-                    ? Whens_header
-                 
-                    : catId == Categories.MENSTRUAL_INFO.catID
-                    ? MENSTRUAL_INFO_HEADER
-                      : catId == Categories.PHYSICAL_EXAMINATION.catID
-                    ? PHYSICAL_INFO_HEADER
-                    : catId == Categories.LAB_TESTS_AND_IMAGING.catID
-                    ? Lab_Test_Header
-                      : catId == Categories.TESTS_REQUESTED.catID
-                    ? TESTS_REQUESTED_HEADER
-                     : catId == Categories.ALLERGIES.catID
-                    ? ALLERGIES_HEADER
-                      : catId == Categories.PERSONAL_HISTORY.catID
-                    ? PERSONAL_HISTORY_HEADER
-                       : catId == Categories.PAST_MEDICAL_HISTORY.catID
-                    ? PAST_MEDICAL_HISTORY_HEADER
-                              : catId == Categories.DOSAGE.catID
-                    ? DOSAGE_HEADER
-                      : catId == Categories.UNITS.catID
-                    ? UNITS_HEADER
-                          : catId == Categories.FREQUENCY.catID
-                    ? FREQUENCY_HEADER
-                           : catId == Categories.DURATION.catID
-                    ? DURATION_HEADER
-                   : catId == Categories.NOTE.catID
-                    ? NOTE_HEADER
-                     : catId == Categories.CVS.catID
-                    ? CVS_HEADER
-                     : catId == Categories.RS.catID
-                    ? RS_HEADER
-                     : catId == Categories.CNS.catID
-                    ? CNS_HEADER
-                     : catId == Categories.PA.catID
-                    ? PA_HEADER
-                     : catId == Categories.ENT.catID
-                    ? ENT_HEADER
-                     : catId == Categories.PREGNANCY_OUTCOME.catID
-                    ? PREGNANCY_OUTCOME_HEADER
+
                     : []
                 }
               />
@@ -990,7 +920,8 @@ console.log("edit medicines are 789",editMedicine)
                           />
                         </td>
                       </tr>
-                    ) : catId == Categories.DIAGNOSIS.catID ? (
+                    )
+                     : catId == Categories.DIAGNOSIS.catID ? (
                       <DiagnosisTable
                         medicine={medicine}
                         duration={medicine}

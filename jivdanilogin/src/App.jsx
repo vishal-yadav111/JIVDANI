@@ -146,9 +146,30 @@ import { Routes, Route } from 'react-router-dom';
 import SidebarHomePage from './components/SidebarHomePage';
 
 // Import Demo Screens
-import MedicationScreen from './components/screens/MedicationScreen';
+
 import AllergiesScreen from './components/screens/AllergiesScreen';
 import ComplaintsScreen from './components/screens/ComplaintsScreen';
+import MedicinePage from './master/master/MasterMedicinePage';
+import CnsScreen from './components/screens/CnsScreen';
+import EntScreen from './components/screens/Entscreen';
+import PaScreen from './components/screens/PaScreen';
+import RaScreen from './components/screens/RsScreen';
+import CVSScreen from './components/screens/Cvsscreen';
+import GeneralScreen from './components/screens/generalScreen';
+import PregnancyOutcomesScreen from './components/screens/PregnancyOutcomesScreen';
+import UnitScreen from './components/screens/UnitScreen';
+import DosageScreen from './components/screens/Dosagescreen';
+import PersonalHistory from './components/screens/PersonalHistory';
+import PastMedicalScreen from './components/screens/PastMedicalScreen';
+import FamilyHistoryScreen from './components/screens/FamilyHistoryScreen';
+import DiagnosisScreen from './components/screens/DiagnosisScreen';
+import DurationScreen from './components/screens/Durationscreen';
+import LabTestImagingScreen from './components/screens/LabTestImagingScreen';
+import TestRequested from './components/screens/TestRequested';
+import InvestigationScreen from './components/screens/InvestigationScreen';
+import WhensScreen from './components/screens/WhenScreen';
+import FrequencyScreen from './components/screens/FrequencyScreen';
+import NoteScreen from './components/screens/NoteScreen';
 
 // You would replace these with your actual Master/Table components
 // import DosageTable from './master/master/masterComponents/DosageTable'
@@ -168,8 +189,10 @@ function App() {
         {/* Nested Routes (Content rendered in the SidebarHomePage's <Outlet />) */}
         
         {/* Medication Group */}
-        <Route index element={<MedicationScreen />} /> {/* Path: / */}
-        <Route path="/dosage" element={<DummyDosage />} />
+        {/* <Route index element={<MedicationScreen />} /> Path: / */}
+         <Route index element={<MedicinePage  />} />
+
+
         
         {/* History Group */}
         <Route path="/Allergy" element={<AllergiesScreen />} />
@@ -178,7 +201,53 @@ function App() {
         <Route path="/Complaints" element={<ComplaintsScreen />} />
 
         {/* Diagnosis Group */}
-        <Route path="/Diagnosis" element={<DummyDiagnosis />} />
+
+        <Route path="/CNS" element={<CnsScreen />} />
+         <Route path="/General" element={<GeneralScreen />} />
+
+        <Route path="/CVS" element={<CVSScreen />} />
+
+        <Route path="/RS" element={<RaScreen />} />
+
+        <Route path="/PA" element={<PaScreen />} />
+        <Route path="/ENT" element={<EntScreen />} />
+          <Route path="/PragnancyOutcomes" element={<PregnancyOutcomesScreen />} />
+
+
+
+
+
+
+
+          <Route path="/Investigation" element={<InvestigationScreen />} />
+         <Route path="/TestRequested" element={<TestRequested />} />
+
+        <Route path="/LabTestImaging" element={<LabTestImagingScreen />} />
+
+        <Route path="/Duration" element={<DurationScreen />} />
+
+        <Route path="/Diagnosis" element={<DiagnosisScreen/>} />
+        <Route path="/Complaints" element={<ComplaintsScreen />} />
+          <Route path="/FamilyHistory" element={<FamilyHistoryScreen />} />
+
+
+
+           <Route path="/PastMedicalHistory" element={<PastMedicalScreen />} />
+
+        <Route path="/PersonalHistory" element={<PersonalHistory />} />
+
+        <Route path="/dosage" element={<DosageScreen/>} />
+        <Route path="/Units" element={<UnitScreen />} />
+         <Route path="/Whens" element={<WhensScreen />} />
+
+        <Route path="/Frequency" element={<FrequencyScreen/>} />
+        <Route path="/Notes" element={<NoteScreen />} />
+
+
+
+
+
+
         
         {/* ... Add all other paths from your sidebar here ... */}
         <Route path="*" element={<div className='p-4'>404 - Not Found</div>} />
