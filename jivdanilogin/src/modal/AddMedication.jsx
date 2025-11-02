@@ -113,7 +113,10 @@ const Medication = ({ customeKey }) => {
       <div data-bs-toggle="modal"
         data-bs-target="#Medicine">
         {customeKey ?
-          <button className="btn btn-primary" style={{ fontSize: 15, }}>Create New +</button>
+          <button className="btn btn-primary" style={{ fontSize: 15, }}
+            data-bs-toggle="modal"
+    data-bs-target="#Medicine"
+    >Create New </button>
           : 
           <CustomTooltip
             icon="fa-solid fa-square-plus"

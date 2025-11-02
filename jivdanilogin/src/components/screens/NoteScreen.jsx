@@ -18,7 +18,7 @@ import { Color } from "../../visitConstant/Color";
 import AddforAll from "../../modal/AddforAll";
 import SidebarHomePage from "../SidebarHomePage";
 import { TableHeader } from "../../master/master/TableHeader";
-import { ALLERGIES_HEADER, Complaints } from "../../master/master/HeaderData";
+import { ALLERGIES_HEADER, Complaints, NOTE_HEADER } from "../../master/master/HeaderData";
 import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";
 import { downloadCSV } from "../../master/master/Utils";
 import CommonTableForAll from "../../master/master/masterComponents/CommonTableForAll";
@@ -68,7 +68,7 @@ const NoteScreen = () => {
   const [showToast, setShowToast] = useState(false);
   const [colorStatus, setColorStatus] = useState(3);
   const [toastMsg, setToastMsg] = useState("");
-  const [catId, setCatId] = useState(Categories.ALLERGIES.catID);
+  const [catId, setCatId] = useState(Categories.NOTE.catID);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageable, setPageable] = useState([]);
@@ -123,7 +123,7 @@ const NoteScreen = () => {
     }
     try {
       const results = await MasterApi(
-        !activeCatId ? Categories.ALLERGIES.catID : activeCatId,
+        !activeCatId ? Categories.NOTE.catID : activeCatId,
         crntPage,
         searchKey,
         PerPage
@@ -263,16 +263,16 @@ const NoteScreen = () => {
   };
 
 
-  if (loading) {
-    return (
-      <div className="p-4 bg-white rounded shadow-sm text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2 text-muted">Loading Notes...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="p-4 bg-white rounded shadow-sm text-center">
+  //       <div className="spinner-border text-primary" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </div>
+  //       <p className="mt-2 text-muted">Loading Notes...</p>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (
@@ -378,7 +378,7 @@ const NoteScreen = () => {
                   className="table-fixed table-borderless"
                   style={{ width: "100%", borderRadius: 8, overflow: "hidden" }}
                 >
-                  <TableHeader headerName={ALLERGIES_HEADER} />
+                  <TableHeader headerName={NOTE_HEADER} />
                 </table>
 
                 {/* Table body */}

@@ -6,6 +6,8 @@ import ToastFist from "../Toast/ToastFist";
 import { ERROR_MSG ,DATA_SAVED} from "../master/Constant";
 import { AddEditAll } from "../master/masterApi/AddEditAll";
 import { Color } from "../visitConstant/Color";
+const activecategoryid=localStorage.getItem("catagoryid")
+console.log("active cat id is ",activecategoryid)
 
 const AddforAll = ({ customeKey }) => {
 
@@ -40,7 +42,8 @@ const AddforAll = ({ customeKey }) => {
   const handleSubmit = async () => {
     setLoading(true);
 
-    const response = await AddEditAll({  name:inputValue.name  });;
+    const response = await AddEditAll({  name:inputValue.name  ,  categoryId: activecategoryid,
+      });;
     // console.log(response, 'dd')
     if (response) {
 
@@ -94,7 +97,7 @@ const AddforAll = ({ customeKey }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="medicineLabellLabel">
-                Add 
+                Add New
               </h5>
               <button
                 type="button"

@@ -21,6 +21,7 @@ import { TableHeader } from "../../master/master/TableHeader";
 import { ALLERGIES_HEADER, Complaints, Whens_header } from "../../master/master/HeaderData";
 import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";
 import { downloadCSV } from "../../master/master/Utils";
+import CommonTableForAll from "../../master/master/masterComponents/CommonTableForAll";
 
 class ComplaintsErrorBoundary extends React.Component {
   constructor(props) {
@@ -262,16 +263,16 @@ const WhensScreen = () => {
   };
 
 
-  if (loading) {
-    return (
-      <div className="p-4 bg-white rounded shadow-sm text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2 text-muted">Loading Whens...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="p-4 bg-white rounded shadow-sm text-center">
+  //       <div className="spinner-border text-primary" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </div>
+  //       <p className="mt-2 text-muted">Loading Whens...</p>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (
@@ -412,7 +413,7 @@ const WhensScreen = () => {
                       </tr>
                     ) : Array.isArray(medicines) && medicines.length > 0 ? (
                       medicines.map((medicine, index) => (
-                        <WhensScreen
+                        <CommonTableForAll
                           key={medicine.id}
                           medicine={medicine}
                           index={index}

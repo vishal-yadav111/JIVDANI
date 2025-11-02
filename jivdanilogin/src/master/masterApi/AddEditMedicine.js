@@ -9,13 +9,14 @@ import { ACCESS_TOKEN , addMedicine,
   SESSION_ID,
   } from "../Constant";
 
-export const AddEditMedicine = async ({ data, content = null }) => {
+export const AddEditMedicine = async ({ data, content = null, categoryId }) => {
   // console.log(data, ' comign from addmedicin')
   try {
     const payload = {
       pubInfo: { sessionId: localStorage.getItem(SESSION_ID) },
       request: {
         busiParams: {
+           categoryId: categoryId,
           ...data,
           contents: content ?? data?.contents,
           active: true,
@@ -36,6 +37,8 @@ export const AddEditMedicine = async ({ data, content = null }) => {
         },
       }
     );
+        console.log(payload, "request  for new medicine");
+    console.log(response, " comfing from EDIt  medicine ");
    //  console.log(response, " comfing from EDI");
     return true;
   } catch (error) {

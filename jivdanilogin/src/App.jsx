@@ -142,6 +142,11 @@
 // src/App.jsx
 
 import React from 'react';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import { Routes, Route } from 'react-router-dom';
 import SidebarHomePage from './components/SidebarHomePage';
 
@@ -170,6 +175,9 @@ import InvestigationScreen from './components/screens/InvestigationScreen';
 import WhensScreen from './components/screens/WhenScreen';
 import FrequencyScreen from './components/screens/FrequencyScreen';
 import NoteScreen from './components/screens/NoteScreen';
+import Login from './Userdashboard/login/Login';
+import { OTP } from './Userdashboard/Constant';
+import Otp from '../src/Userdashboard/login/Otp'
 
 // You would replace these with your actual Master/Table components
 // import DosageTable from './master/master/masterComponents/DosageTable'
@@ -181,8 +189,10 @@ function App() {
   return (
     <Routes>
       {/* 1. Standalone/Public Routes (No Sidebar) */}
-      <Route path="/Login" element={<DummyLogin />} />
-      <Route path="/Otp" element={<h1>OTP Screen (Dummy)</h1>} />
+   
+        <Route path="/Login" element={<Login/>} />
+         <Route path='/Login' element={<Login />} />
+       <Route path="/Otp" element={<Otp />} />
 
       {/* 2. Main Application Layout Route (Uses SidebarHomePage) */}
       <Route element={<SidebarHomePage />}>

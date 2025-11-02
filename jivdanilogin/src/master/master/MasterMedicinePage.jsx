@@ -492,12 +492,8 @@ console.log("edit medicines are 789",editMedicine)
           {/* <button className="btn btn-primary">Create New +</button> */}
           
           
-          {catId === Categories.MEDICINE.catID ? (
+         
   <Medication customeKey={true} />
-) : (
-  <AddforAll customeKey={true} />
-)}
-
        
           
         </div>

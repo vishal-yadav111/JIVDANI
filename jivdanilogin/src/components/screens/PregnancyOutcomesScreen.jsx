@@ -263,16 +263,16 @@ const PregnancyOutcomesScreen = () => {
   };
 
 
-  if (loading) {
-    return (
-      <div className="p-4 bg-white rounded shadow-sm text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2 text-muted">Loading Pregnancy Outcomes...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="p-4 bg-white rounded shadow-sm text-center">
+  //       <div className="spinner-border text-primary" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </div>
+  //       <p className="mt-2 text-muted">Loading Pregnancy Outcomes...</p>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (

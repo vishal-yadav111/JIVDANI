@@ -68,7 +68,7 @@ const LabTestImagingScreen = () => {
   const [showToast, setShowToast] = useState(false);
   const [colorStatus, setColorStatus] = useState(3);
   const [toastMsg, setToastMsg] = useState("");
-  const [catId, setCatId] = useState(Categories.ALLERGIES.catID);
+  const [catId, setCatId] = useState(Categories.LAB_TESTS_AND_IMAGING.catID);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageable, setPageable] = useState([]);
@@ -263,16 +263,16 @@ const LabTestImagingScreen = () => {
   };
 
 
-  if (loading) {
-    return (
-      <div className="p-4 bg-white rounded shadow-sm text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2 text-muted">Loading Lab Test And Imaging...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="p-4 bg-white rounded shadow-sm text-center">
+  //       <div className="spinner-border text-primary" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </div>
+  //       <p className="mt-2 text-muted">Loading Lab Test And Imaging...</p>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (

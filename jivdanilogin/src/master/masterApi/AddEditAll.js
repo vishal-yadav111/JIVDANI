@@ -24,6 +24,9 @@ export const AddEditAll = async ({ categoryId, name, id}) => {
      if (id !== undefined && id !== null && id !== "") {
       payload.request.busiParams.id = id;
     }
+
+
+    
        
     // eslint-disable-next-line no-unused-vars
     const response = await axios.post(

@@ -262,16 +262,16 @@ const UnitScreen = () => {
   };
 
 
-  if (loading) {
-    return (
-      <div className="p-4 bg-white rounded shadow-sm text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2 text-muted">Loading Units...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="p-4 bg-white rounded shadow-sm text-center">
+  //       <div className="spinner-border text-primary" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </div>
+  //       <p className="mt-2 text-muted">Loading Units...</p>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (
@@ -485,7 +485,7 @@ const UnitScreen = () => {
               >
                 <div className="modal-content">
                   <div className="modal-body">
-                    <p>Are you sure you want to delete this complaint?</p>
+                    <p>Are you sure you want to delete this Units?</p>
                   </div>
                   <div className="modal-footer">
                     <button
