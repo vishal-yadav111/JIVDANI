@@ -179,7 +179,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       for (let item of MenuList) {
         if (item.path === path) {
           setCurrentId(item.id);
-          return;
+         
         }
         if (item.subItems) {
           // Open parent menu if a subitem is active

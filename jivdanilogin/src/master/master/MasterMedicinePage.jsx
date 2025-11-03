@@ -16,32 +16,7 @@ import { TableHeader } from "./TableHeader";
 import Categories from "../../visitConstant/Categories";
 import {
   MedicineHeader,
-  DiagnosisHeader,
-  InvestigationHeader,
-  Complaints,
-  generalExaminations,
 
-  
-  PHYSICAL_INFO_HEADER,
-  MENSTRUAL_INFO_HEADER,
-  Whens_header,
-  Lab_Test_Header,
-  TESTS_REQUESTED_HEADER,
-  ALLERGIES_HEADER,
-  PERSONAL_HISTORY_HEADER,
-  PAST_MEDICAL_HISTORY_HEADER,
-  DOSAGE_HEADER,
-  UNITS_HEADER,
-  FREQUENCY_HEADER,
-  DURATION_HEADER,
-  NOTE_HEADER,
-  PREGNANCY_OUTCOME_HEADER,
-  ENT_HEADER,
-  PA_HEADER,
-  CNS_HEADER,
-  RS_HEADER,
-  CVS_HEADER,
-  
 } from "./HeaderData";
 
 
@@ -54,40 +29,12 @@ import Medication from "../../modal/AddMedication";
 import ToastFist from "../../Toast/ToastFist";
 // import {  DATA_SAVED} from "../../../Constant";
 
-import DiagnosisTable from "./masterComponents/DiagnosisTable";
-import InvestigationTable from "./masterComponents/InvestigationTable";
-import ComplaintsTable from "./masterComponents/CommonTableForAll";
 
 import { ERROR_MSG ,DATA_SAVED} from "../Constant";
 import { faDownload, faFloppyDisk, faMagnifyingGlass, faPencil, faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import XrayTable from "./masterComponents/XrayTable";
-import MenstrualInfoTable from "./masterComponents/MenstrualInfoTable";
-import PhysicalExaminationTable from "./masterComponents/PhysicalExaminationTable";
-import WhensTable from "./masterComponents/WhensTable";
-import LabTestImagingTable from "./masterComponents/LabTestImagingTable";
-import TestRequestedTable from "./masterComponents/TestRequestedTable";
-import GeneralTable from "./masterComponents/GeneralTable";
-import AllergyTable from "./masterComponents/AllergyTable";
-import PersonalHistory from "./masterComponents/PersonaHistoryTable";
-import PastMedicalHistory from "./masterComponents/PastMedicalHistoryTable";
-import FamilyHistory from "./masterComponents/FamilyHistoryTable";
-import DosageTable from "./masterComponents/DosageTable";
-import UnitsTable from "./masterComponents/UnitsTable";
-import FrequencyTable from "./masterComponents/FrequencyTable";
-import DurationTable from "./masterComponents/DurationTable";
-import NoteTable from "./masterComponents/NoteTable";
-import PragnancyOutcomestable from "./masterComponents/PregnancyoutcomesTable";
-import ENTTable from "./masterComponents/EntTable";
-import PATable from "./masterComponents/PaTable";
-import CNSTable from "./masterComponents/CnsTable";
-import RSTable from "./masterComponents/RsTable";
-import CVSTable from "./masterComponents/CvsTable";
+
 import { AddEditAll } from "../masterApi/AddEditAll";
-import MasterSideBar from "./MasterSideBar";
-import AddforAll from "../../modal/AddforAll";
-import SideBar from "./SidebarHomePage";
-import SidebarHomePage from "./SidebarHomePage";
 
 const MedicinePage = () => {
   const [medicines, setMedicines] = useState([]);
@@ -102,6 +49,7 @@ const MedicinePage = () => {
   const [colorStatus, setColorStatus] = useState(3);
   const [toastMsg, setToastMsg] = useState("");
 
+  // eslint-disable-next-line no-unused-vars
   const [catId, setCatId] = useState(Categories.MEDICINE.catID );
 
   const [editMedicine, setEditMedicine] = useState({
@@ -171,11 +119,7 @@ const MedicinePage = () => {
       active: true,
     });
   };
-  const handleSideBar = (clickedCatId) => {
-    setCatId(clickedCatId);
-    setRowsPerPage(50)
-    getData("", 50, 1, clickedCatId);
-  };
+
 
   useEffect(() => {
     setLoading(true);
@@ -503,25 +447,7 @@ console.log("edit medicines are 789",editMedicine)
         className=" "
         style={{ flexDirection: "row", display: "flex", width: "100%" }}
       >
-        {/* <div
-          className="col d-flex flex-column align-items-center py-3 me-3  px-2 bg-white mb-1"
-          style={{
-            borderTopRightRadius: "8px",
-            borderBottomRightRadius: "8px",
-            overflowY: "auto",
-            overflowX: "hidden",
-            scrollbarWidth:'none',
-            height: "86vh",
-            width: "10%",
-            minWidth:"18%"
-          }}
-        >
-          <MasterSideBar handleSideBar={handleSideBar} />
-          {/* <Sidebar handleSideBar={handleSideBar} /> */}
-        
-         
-          {/* <MasterSideBar handleSideBar={handleSideBar} /> */}
-        {/* </div> */}
+   
 
 
         <div
@@ -916,359 +842,8 @@ console.log("edit medicines are 789",editMedicine)
                           />
                         </td>
                       </tr>
-                    )
-                     : catId == Categories.DIAGNOSIS.catID ? (
-                      <DiagnosisTable
-                        medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ) : catId == Categories.INVESTIGATIONS.catID ? (
-                      <InvestigationTable
-                        medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ) : catId == Categories.COMPLAINTS.catID ? (
-                      <ComplaintsTable
-                        medicine={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
                     ):
 
-
-                    catId == Categories.GENERAL.catID ? (
-                      <GeneralTable
-                        generalExaminations={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                    
-                             catId == Categories.MENSTRUAL_INFO.catID ? (
-                      <MenstrualInfoTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-
-                     catId == Categories.WHENS.catID ? (
-                      <WhensTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-
-                       catId == Categories.LAB_TESTS_AND_IMAGING.catID ? (
-                      <LabTestImagingTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                           catId == Categories.TESTS_REQUESTED.catID ? (
-                      <TestRequestedTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-                     catId == Categories.ALLERGIES.catID ? (
-                      <AllergyTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                       catId == Categories.PERSONAL_HISTORY.catID ? (
-                      <PersonalHistory
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                        catId == Categories.PAST_MEDICAL_HISTORY.catID ? (
-                      <PastMedicalHistory
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                       catId == Categories.FAMILY_HISTORY.catID ? (
-                      <FamilyHistory
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                     catId == Categories.DOSAGE.catID ? (
-                      <FamilyHistory
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                       catId == Categories.UNITS.catID ? (
-                      <UnitsTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                      catId == Categories.FREQUENCY.catID ? (
-                      <FrequencyTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                    
-                       catId == Categories.DURATION.catID ? (
-                      <DurationTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                       catId == Categories.NOTE.catID ?(
-                      <NoteTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                                 catId == Categories.CVS.catID ?(
-                      <CVSTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-                                 catId == Categories.RS.catID ?(
-                      <RSTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                                 catId == Categories.CNS.catID ?(
-                      <CNSTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-                                 catId == Categories.PA.catID ?(
-                      <PATable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-
-                                 catId == Categories.ENT.catID ?(
-                      <ENTTable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
-                    
-                                 catId == Categories.PREGNANCY_OUTCOME.catID ?(
-                      <PragnancyOutcomestable
-                         medicine={medicine}
-                        duration={medicine}
-                        date={medicine}
-                        index={index}
-                        indexOfFirstMedicine={0}
-                        editingId={editingId}
-                        editMedicine={editMedicine}
-                        handleEditChange={handleEditChange}
-                        saveEdit={saveEdit}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                      />
-                    ):
                     
                      null
                   )

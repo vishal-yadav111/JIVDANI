@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import ComplaintsTable from "../../master/master/masterComponents/CommonTableForAll";
+
 import { MasterApi } from "../../master/masterApi/MasterApi";
 import useDebounce from "../../useDebounce/useDebounce/useDebounce";
 import { AddEditAll } from "../../master/masterApi/AddEditAll";
@@ -15,7 +16,7 @@ import ToastFist from "../../Toast/ToastFist";
 import Categories from "../../visitConstant/Categories";
 import { Color } from "../../visitConstant/Color";
 import AddforAll from "../../modal/AddforAll";
-import SidebarHomePage from "../SidebarHomePage";
+
 import { TableHeader } from "../../master/master/TableHeader";
 import { ALLERGIES_HEADER, Complaints } from "../../master/master/HeaderData";
 import { DATA_SAVED, ERROR_MSG } from "../../master/Constant";

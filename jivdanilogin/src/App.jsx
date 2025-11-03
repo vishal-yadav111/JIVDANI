@@ -176,14 +176,11 @@ import WhensScreen from './components/screens/WhenScreen';
 import FrequencyScreen from './components/screens/FrequencyScreen';
 import NoteScreen from './components/screens/NoteScreen';
 import Login from './Userdashboard/login/Login';
-import { OTP } from './Userdashboard/Constant';
+
 import Otp from '../src/Userdashboard/login/Otp'
 
 // You would replace these with your actual Master/Table components
 // import DosageTable from './master/master/masterComponents/DosageTable'
-const DummyDosage = () => <div className='p-4'><h3>📋 Dosage Screen (Dummy)</h3><p>Path: /dosage</p></div>;
-const DummyDiagnosis = () => <div className='p-4'><h3>🩺 Diagnosis Screen (Dummy)</h3><p>Path: /Diagnosis</p></div>;
-const DummyLogin = () => <div className='p-4'><h3>🔑 Login Screen (Dummy)</h3><p>Path: /Login</p></div>;
 
 function App() {
   return (
