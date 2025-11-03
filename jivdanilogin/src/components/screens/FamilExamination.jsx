@@ -173,7 +173,6 @@ const FamilyExaminationScreen = () => {
   };
 
   const handleEdit = (id, med) => {
-    console.log("handle edit function call", id);
     setEditingId(id);
     setEditMedicine({
       id: med?.id,

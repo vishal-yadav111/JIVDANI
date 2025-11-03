@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-// import { DATA_SAVED, } from "../../Constant";
-// import CustomTooltip from "../CustomTooltip";
+
 import { AddEditMedicine } from "../master/masterApi/AddEditMedicine";
 import ToastFist from "../Toast/ToastFist";
 import { ERROR_MSG ,DATA_SAVED} from "../master/Constant";
 import { AddEditAll } from "../master/masterApi/AddEditAll";
 import { Color } from "../visitConstant/Color";
 const activecategoryid=localStorage.getItem("catagoryid")
-console.log("active cat id is ",activecategoryid)
+
 
 const AddforAll = ({ customeKey }) => {
 
@@ -44,7 +43,7 @@ const AddforAll = ({ customeKey }) => {
 
     const response = await AddEditAll({  name:inputValue.name  ,  categoryId: activecategoryid,
       });;
-    // console.log(response, 'dd')
+
     if (response) {
 
       setShowToast(true);

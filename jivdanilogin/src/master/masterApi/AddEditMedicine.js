@@ -37,8 +37,7 @@ export const AddEditMedicine = async ({ data, content = null, categoryId }) => {
         },
       }
     );
-        console.log(payload, "request  for new medicine");
-    console.log(response, " comfing from EDIt  medicine ");
+ 
    //  console.log(response, " comfing from EDI");
     return true;
   } catch (error) {

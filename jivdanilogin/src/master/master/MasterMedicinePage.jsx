@@ -177,7 +177,6 @@ const MedicinePage = () => {
     activeCatId
   ) => {
     try {
-        // console.log("for api", crntPage, searchKey, PerPage);
       const results = await MasterApi(
         !activeCatId ? Categories.MEDICINE.catID : activeCatId,
 
@@ -223,7 +222,6 @@ const MedicinePage = () => {
   };
 
   const handleEdit = (id, med) => {
-    console.log("handle edit function call",id);
     setEditingId(id);
 
     setEditMedicine({
@@ -274,7 +272,6 @@ const MedicinePage = () => {
    
  
     const response = await AddEditAll({ categoryId:catId, name:editMedicine.name, id:editingId });
-    console.log("medicines are 111 ",editMedicine.name)
     
 
 
@@ -348,7 +345,7 @@ const MedicinePage = () => {
     setSearch("");
     getData("", rowsPerPage, currentPage);
   };
-console.log("edit medicines are 789",editMedicine)
+
 
 
   return (

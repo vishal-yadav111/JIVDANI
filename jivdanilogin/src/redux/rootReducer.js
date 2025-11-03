@@ -15,7 +15,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case REACT_NATIVE_DATA_SHOW:
-      console.log(`Redux: React Native Data Show set to ${action.payload}`);
+ 
       return {
         ...state,
         dataShowValue: action.payload,
