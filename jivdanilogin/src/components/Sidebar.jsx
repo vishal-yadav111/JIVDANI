@@ -44,7 +44,7 @@ const menuItems = [
     path: "/",
      subItems: [
       { id: "MedicineAnalyst", title: "Medicine Analyst", icon: faFileText, path: "/" },
-      { id: "Dosage", title: "Dosage", icon: faCalendarDays, path: "/dosage" },
+      { id: "Dosage", title: "Dosage", icon: faCalendarDays, path: "/dosage",catid:Categories.DOSAGE.catID  },
       { id: "Units", title: "Units", icon: faChartBar, path: "/Units",catid:Categories.UNITS.catID },
 
              { title: "Whens", id: "Whens", icon: faQuestion ,path: "/Whens",catid:Categories.WHENS.catID},

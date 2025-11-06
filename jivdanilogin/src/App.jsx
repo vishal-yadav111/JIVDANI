@@ -178,6 +178,8 @@ import NoteScreen from './components/screens/NoteScreen';
 import Login from './Userdashboard/login/Login';
 
 import Otp from '../src/Userdashboard/login/Otp'
+import Roledashboard from './JivdaniRoleDashboard/RoleUi/Roledashboard';
+
 
 // You would replace these with your actual Master/Table components
 // import DosageTable from './master/master/masterComponents/DosageTable'
@@ -186,6 +188,7 @@ function App() {
   return (
     <Routes>
       {/* 1. Standalone/Public Routes (No Sidebar) */}
+               <Route path="/role" element={<Roledashboard/>} />
    
         <Route path="/Login" element={<Login/>} />
          <Route path='/Login' element={<Login />} />
@@ -255,11 +258,13 @@ function App() {
 
 
 
+
         
         {/* ... Add all other paths from your sidebar here ... */}
         <Route path="*" element={<div className='p-4'>404 - Not Found</div>} />
       </Route>
     </Routes>
+    
   );
 }
 
